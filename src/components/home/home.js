@@ -2,9 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-        const giftCategories = ["tech","food", "music", "adventure", "movies", "sports"]
+	const giftCategories = [
+		'tech',
+		'food',
+		'music',
+		'adventure',
+		'movies',
+		'sports',
+	];
 
-    return (
+	return (
 		<div>
 			<h1>Gift Categories</h1>
 			<div className='gift-container'>

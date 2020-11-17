@@ -3,10 +3,10 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import Nav from './components/Nav/nav';
-import Home from './components/home/Home';
+import Home from './components/home/home';
 import Favorites from './components/favorites/favorites';
 import GiftForm from './components/giftForm/giftForm';
-import GiftList from './components/giftList/GiftList';
+import GiftList from './components/giftList/giftList';
 import GiftShow from './components/giftShow/giftShow';
 
 function App() {
