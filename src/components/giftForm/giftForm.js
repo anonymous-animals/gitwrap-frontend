@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const GiftForm = () => {
-	// const history = useHistory();
+	const history = useHistory();
 	const [gift, setGift] = useState({
 		name: '',
 		description: '',
@@ -20,12 +20,12 @@ const GiftForm = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		// axios({
-		// 	method: 'POST',
-		// 	url: 'http://localhost:4000/gifts',
-		// 	data: comic,
-		// });
-		// history.push('/');
+		axios({
+			method: 'POST',
+			url: 'http://gitwrap-backend.herokuapp.com/gifts',
+			data: gift,
+		});
+		history.push('/');
 	};
 	console.log(gift);
 	return (
@@ -56,10 +56,10 @@ const GiftForm = () => {
 					<Form.Label>Image</Form.Label>
 					<Form.Control
 						type='img-url'
-						name='img'
-						id='img'
+						name='image'
+						id='image'
 						onChange={handleChange}
-						value={gift.img}
+						value={gift.image}
 						placeholder='image url please'
 					/>
 					<Form.Label>Price</Form.Label>
