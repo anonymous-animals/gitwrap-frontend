@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
+
 import Nav from './components/Nav/nav';
-import Home from './components/home/home';
+import Home from './components/home/Home';
 import Favorites from './components/favorites/favorites';
 import GiftForm from './components/giftForm/giftForm';
 import GiftList from './components/giftList/giftList';
@@ -18,7 +19,11 @@ function App() {
 			</header>
 			<main>
 				<Switch>
-					<Route exact path='/' component={Home} />
+					<Route
+						exact
+						path='/'
+						render={() => <Home gifts={gifts} setGifts={setGifts} />}
+					/>
 					<Route
 						exact
 						path='/gifts'
