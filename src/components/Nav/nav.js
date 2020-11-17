@@ -1,27 +1,26 @@
 import React from 'react';
-import {
-	Navbar,
-	Nav,
-	Button,
-	Form,
-	FormControl,
-	Jumbotron,
-} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './nav.css';
 
 const nav = () => {
 	return (
 		<div>
-			<Navbar bg='dark' variant='dark'>
-				<Navbar.Brand href='#home'>Navbar</Navbar.Brand>
-				<Nav className='mr-auto'>
-					<Nav.Link href='#home'>Home</Nav.Link>
-					<Nav.Link href='#features'>Features</Nav.Link>
-					<Nav.Link href='#pricing'>Pricing</Nav.Link>
-				</Nav>
-				<Form inline>
-					<FormControl type='text' placeholder='Search' className='mr-sm-2' />
-					<Button variant='outline-info'>Search</Button>
-				</Form>
+			<Navbar bg='light' expand='lg'>
+				<Link to='/'>
+					<Navbar.Brand id='brand'>gitWrap</Navbar.Brand>
+				</Link>
+				<Navbar.Toggle aria-controls='basic-navbar-nav' />
+				<Navbar.Collapse id='basic-navbar-nav'>
+					<Nav className='mr-auto'>
+						<Link to='/add-gift' class='nav-link'>
+							Add a Gift
+						</Link>
+						<Link to='/favorites' class='nav-link'>
+							Favorites
+						</Link>
+					</Nav>
+				</Navbar.Collapse>
 			</Navbar>
 		</div>
 	);
