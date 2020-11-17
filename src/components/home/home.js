@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
 	const giftCategories = [
-		'tech',
-		'food',
-		'music',
-		'adventure',
-		'movies',
-		'sports',
+		'Tech',
+		'Food',
+		'Music',
+		'Adventure',
+		'Movies',
+		'Sports',
 	];
 
 	return (
