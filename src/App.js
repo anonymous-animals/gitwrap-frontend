@@ -16,7 +16,7 @@ function App() {
 		<div className='App'>
 			<header>
 				<Nav />
-			</header>
+			</header> 
 			<main>
 				<Switch>
 					<Route exact path='/' render={() => <Home />} />
