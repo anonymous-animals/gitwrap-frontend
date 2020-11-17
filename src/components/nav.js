@@ -11,7 +11,7 @@ import {
 const nav = () => {
 	return (
 		<div>
-			<Navbar bg='dark' variant='dark'>
+			<Navbar bg='light' variant='dark'>
 				<Navbar.Brand href='#home'>Navbar</Navbar.Brand>
 				<Nav className='mr-auto'>
 					<Nav.Link href='#home'>Home</Nav.Link>
