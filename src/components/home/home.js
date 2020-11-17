@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = ({gifts, setGifts}) => {
-		//const giftsUrl = ``;
+const Home = () => {
         const giftCategories = ["Tech","Food", "Music", "Adventure", "Movies", "Sports"]
 
     return (

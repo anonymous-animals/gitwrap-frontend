@@ -6,7 +6,7 @@ import Nav from './components/Nav/nav';
 import Home from './components/home/Home';
 import Favorites from './components/favorites/favorites';
 import GiftForm from './components/giftForm/giftForm';
-import GiftList from './components/giftList/giftList';
+import GiftList from './components/giftList/GiftList';
 import GiftShow from './components/giftShow/giftShow';
 
 function App() {
@@ -19,15 +19,17 @@ function App() {
 			</header>
 			<main>
 				<Switch>
+					<Route exact path='/' render={() => <Home />} />
 					<Route
 						exact
-						path='/'
-						render={() => <Home gifts={gifts} setGifts={setGifts} />}
-					/>
-					<Route
-						exact
-						path='/gifts'
-						render={() => <GiftList gifts={gifts} setGifts={setGifts} />}
+						path='/gifts/:category'
+						render={(routerProps) => (
+							<GiftList
+								gifts={gifts}
+								setGifts={setGifts}
+								match={routerProps.match}
+							/>
+						)}
 					/>
 					<Route
 						path='/gifts/:id'
