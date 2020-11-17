@@ -16,14 +16,22 @@ function App() {
 			<header>
 				<Nav />
 			</header>
-			<main></main>
-			<Switch>
-				<Route exact path='/' component={Home} />
-				<Route path='/gifts' component={GiftList} />
-				<Route path='/gift/:id' component={GiftShow} />
-				<Route path='/add-gift' component={GiftForm} />
-				<Route path='/favorites' component={Favorites} />
-			</Switch>
+			<main>
+				<Switch>
+					<Route exact path='/' component={Home} />
+					<Route
+						exact
+						path='/gifts'
+						render={() => <GiftList gifts={gifts} setGifts={setGifts} />}
+					/>
+					<Route
+						path='/gifts/:id'
+						render={(routerProps) => <GiftShow match={routerProps.match} />}
+					/>
+					<Route path='/add-gift' component={GiftForm} />
+					<Route path='/favorites' component={Favorites} />
+				</Switch>
+			</main>
 		</div>
 	);
 }
