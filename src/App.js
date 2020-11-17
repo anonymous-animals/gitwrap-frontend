@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Nav from './components/nav';
 
 function App() {
-  const [gifts, setGifts] = useState([])
+	const [gifts, setGifts] = useState([]);
 
-  return (
-    <div className="App">
-      my squad is dope
-    i can second that.
-    </div>
-  );
+	return (
+		<div className='App'>
+			<Nav />
+			my squad is dope i can second that.
+		</div>
+	);
 }
 
 export default App;
