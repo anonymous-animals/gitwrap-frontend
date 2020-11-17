@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-        const giftCategories = ["Tech","Food", "Music", "Adventure", "Movies", "Sports"]
+        const giftCategories = ["tech","food", "music", "adventure", "movies", "sports"]
 
     return (
 		<div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const GiftList = ({ match, gifts, setGifts }) => {
 	useEffect(() => {
-		const giftsUrl = 'public/dummy-data.json';
+		const giftsUrl = 'dummy-data.json';
 
 		fetch(giftsUrl)
 			.then((res) => res.json())
@@ -19,12 +19,11 @@ const GiftList = ({ match, gifts, setGifts }) => {
 	if (!gifts) {
 		return null;
 	}
-
 	return (
 		<div>
 			<h1>{match.params.category} Gifts</h1>
 			<div className='gift-container'>
-				{gifts.map((gift) => {
+				{gifts.filter(gift => gift.category.toLowerCase() === match.params.category).map(gift => {
 					return (
 						<div key={gift.name}>
 							<div>
