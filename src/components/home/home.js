@@ -14,7 +14,6 @@ const Home = () => {
 
 	return (
 		<div>
-			<h1>Gift Categories</h1>
 			<div className='gift-container'>
 				{giftCategories.map((category) => {
 					return (
