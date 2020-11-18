@@ -1,0 +1,14 @@
+.gift-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-auto-rows: minmax(200px, auto);
+	grid-gap: 2rem;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 1rem;
+	color: black;
+}
+
+.gift-container img {
+	width: 100%;
+}

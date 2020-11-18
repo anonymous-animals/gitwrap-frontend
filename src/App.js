@@ -1,15 +1,46 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  const [gifts, setGifts] = useState([])
+import Nav from './components/Nav/nav';
+import Home from './components/home/home';
+import Favorites from './components/favorites/favorites';
+import GiftForm from './components/giftForm/giftForm';
+import GiftList from './components/giftList/giftList';
+import GiftShow from './components/giftShow/giftShow';
 
-  return (
-    <div className="App">
-      my squad is dope
-    i can second that.
-    </div>
-  );
+function App() {
+	const [gifts, setGifts] = useState([]);
+
+	return (
+		<div className='App'>
+			<header>
+				<Nav />
+			</header> 
+			<main>
+				<Switch>
+					<Route exact path='/' render={() => <Home />} />
+					<Route
+						exact
+						path='/gifts/:category'
+						render={(routerProps) => (
+							<GiftList
+								gifts={gifts}
+								setGifts={setGifts}
+								match={routerProps.match}
+							/>
+						)}
+					/>
+					<Route
+						path='/gifts/:id'
+						render={(routerProps) => <GiftShow match={routerProps.match} />}
+					/>
+					<Route path='/add-gift' component={GiftForm} />
+					<Route path='/favorites' component={Favorites} />
+				</Switch>
+			</main>
+		</div>
+	);
 }
 
 export default App;
