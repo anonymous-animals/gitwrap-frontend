@@ -11,18 +11,19 @@ import GiftShow from './components/giftShow/giftShow';
 
 function App() {
 	const [gifts, setGifts] = useState([]);
+	const [favorites, setFavorites] = useState([]);
 
 	return (
 		<div className='App'>
 			<header>
 				<Nav />
-			</header> 
+			</header>
 			<main>
 				<Switch>
 					<Route exact path='/' render={() => <Home />} />
 					<Route
 						exact
-						path='/gifts/:category'
+						path='/:category'
 						render={(routerProps) => (
 							<GiftList
 								gifts={gifts}
@@ -32,8 +33,17 @@ function App() {
 						)}
 					/>
 					<Route
+						exact
 						path='/gifts/:id'
-						render={(routerProps) => <GiftShow match={routerProps.match} />}
+						render={(routerProps) => (
+							<GiftShow
+								match={routerProps.match}
+								favorites={favorites}
+								setFavorites={setFavorites}
+								gifts={gifts}
+								setGifts={setGifts}
+							/>
+						)}
 					/>
 					<Route path='/add-gift' component={GiftForm} />
 					<Route path='/favorites' component={Favorites} />

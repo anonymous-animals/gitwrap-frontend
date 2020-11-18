@@ -1,15 +1,16 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 
 const Home = () => {
 	const giftCategories = [
-		'Tech',
-		'Food',
-		'Music',
-		'Adventure',
-		'Movies',
-		'Sports',
+		'tech',
+		'food',
+		'music',
+		'adventure',
+		'movies',
+		'sports',
 	];
 
 	return (
@@ -19,7 +20,7 @@ const Home = () => {
 					return (
 						<div key={category}>
 							<div>
-								<Link to={`/gifts/${category}`}>
+								<Link to={`/${category}`}>
 									<Card style={{ width: '18rem' }}>
 										<Card.Body>
 											<Card.Title>{category}</Card.Title>
