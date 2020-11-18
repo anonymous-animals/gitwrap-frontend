@@ -12,6 +12,7 @@ const GiftForm = () => {
 		image: '',
 		price: '',
 		purchaseLink: '',
+		category: ['adventure'],
 	});
 	const handleChange = (event) => {
 		event.preventDefault();
@@ -27,7 +28,6 @@ const GiftForm = () => {
 		});
 		history.push('/');
 	};
-	console.log(gift);
 	return (
 		<div class='form'>
 			<h2>Add A New Gift</h2>
@@ -82,15 +82,22 @@ const GiftForm = () => {
 						placeholder='purchase url please'
 					/>
 				</Form.Group>
-				{/* <Form.Group>
+				<Form.Group>
 					<Form.Label>Category</Form.Label>
-					<Form.Control as='select'>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
+					<Form.Control
+						as='select'
+						onChange={handleChange}
+						value={gift.category}
+						type='category'
+						name='category'>
+						<option>tech</option>
+						<option>food</option>
+						<option>music</option>
+						<option>adventure</option>
+						<option>movies</option>
+						<option>sports</option>
 					</Form.Control>
-				</Form.Group> */}
+				</Form.Group>
 				<Button variant='primary' type='submit'>
 					Submit
 				</Button>
