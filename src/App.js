@@ -23,7 +23,7 @@ function App() {
 					<Route exact path='/' render={() => <Home />} />
 					<Route
 						exact
-						path='/gifts/:category'
+						path='/:category'
 						render={(routerProps) => (
 							<GiftList
 								gifts={gifts}

@@ -1,50 +1,49 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 
-const GiftShow = ({ match, favorites, setFavorites, gift, setGift }) => {
+const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
+	useEffect(() => {
+		const giftUrl = `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`;
 	
-	//useEffect(() => {
-	// 	const giftUrl = `${match.params.id}`;
 
-	// 	fetch(giftUrl)
-	// 		.then((res) => res.json())
-	// 		.then((res) => {
-	// 			setGift(res);
-	// 		})
+		fetch(giftUrl)
+			.then((res) => res.json())
+			.then((res) => {
+				setGifts(res);
+				console.log(res);
+			})
 
-	// 		.catch(console.error);
-	// }, []);
+			.catch(console.error);
+	}, []);
 
-	// if (!gift) {
-	// 	return null;
-	// }
+	if (!gifts) {
+		return null;
+	}
 
 	const handleClick = (event) => {
 		event.preventDefault();
 		setFavorites([
 			...favorites,
 			{
-				name: gift.name,
-				image: gift.image,
-				id: gift.id,
-				category: gift.category,
+				name: gifts.name,
+				image: gifts.image,
+				id: gifts.id,
+				category: gifts.category,
 			},
 		]);
 	};
-	
+
 	return (
 		<div>
 			<Card style={{ width: '18rem' }}>
-				<Card.Img variant='top' src='holder.js/100px180?text=Image cap' />
+				<Card.Img variant='top' src={gifts.image} />
 				<Card.Body>
-					<Card.Title>Card Title</Card.Title>
-					<Card.Text>ITEM DESCRIPTION</Card.Text>
+					<Card.Title>{gifts.name}</Card.Title>
+					<Card.Text>{gifts.description}</Card.Text>
 				</Card.Body>
 				<ListGroup className='list-group-flush'>
-					<ListGroupItem>Price</ListGroupItem>
-					<ListGroupItem>
-						Category (Possibly turn into link to category page
-					</ListGroupItem>
+					<ListGroupItem>{gifts.price}</ListGroupItem>
+					<ListGroupItem>{gifts.category}</ListGroupItem>
 					<Card.Link href='#'>Buy Now</Card.Link>
 				</ListGroup>
 				<Card.Body>
