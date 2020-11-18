@@ -23,7 +23,7 @@ const GiftForm = () => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-			url: 'http://localhost:4000/gifts',
+			url: 'http://gitwrap-backend.herokuapp.com/gifts',
 			data: gift,
 		});
 		history.push('/');
