@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import './giftList.css'
 
 const GiftList = ({ match, gifts, setGifts }) => {
+	
 	useEffect(() => {
-		const giftsUrl = '/dummy-data.json';
+		const giftsUrl =
+			`https://gitwrap-backend.herokuapp.com/gifts/${match.params.category}`;
 
 		fetch(giftsUrl)
 			.then((res) => res.json())
@@ -22,7 +24,11 @@ const GiftList = ({ match, gifts, setGifts }) => {
 	}
 	return (
 		<div>
-			<h1>{match.params.category} Gifts</h1>
+			<h1>
+				{match.params.category.charAt(0).toUpperCase() +
+					match.params.category.slice(1)}{' '}
+				Gifts
+			</h1>
 			<div className='gift-container'>
 				{gifts.map((gift) => {
 					return (

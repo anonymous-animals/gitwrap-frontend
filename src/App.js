@@ -34,12 +34,14 @@ function App() {
 					/>
 					<Route
 						exact
-						path='/gifts/:category/:id'
+						path='/gifts/:id'
 						render={(routerProps) => (
 							<GiftShow
 								match={routerProps.match}
 								favorites={favorites}
 								setFavorites={setFavorites}
+								gifts={gifts}
+								setGifts={setGifts}
 							/>
 						)}
 					/>
