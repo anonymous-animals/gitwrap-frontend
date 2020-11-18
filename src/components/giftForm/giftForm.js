@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import './giftForm.css';
 
 const GiftForm = () => {
 	const history = useHistory();
@@ -11,7 +12,6 @@ const GiftForm = () => {
 		image: '',
 		price: '',
 		purchaseLink: '',
-		category: [],
 	});
 	const handleChange = (event) => {
 		event.preventDefault();
@@ -22,15 +22,16 @@ const GiftForm = () => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-			url: 'http://gitwrap-backend.herokuapp.com/gifts',
+			url: 'http://localhost:4000/gifts',
 			data: gift,
 		});
 		history.push('/');
 	};
 	console.log(gift);
 	return (
-		<div>
-			<Form onSubmit={handleSubmit}>
+		<div class='form'>
+			<h2>Add A New Gift</h2>
+			<Form onSubmit={handleSubmit} class='formContainer'>
 				<Form.Group>
 					<Form.Label htmlFor='name'>Name</Form.Label>
 					<Form.Control
@@ -81,7 +82,7 @@ const GiftForm = () => {
 						placeholder='purchase url please'
 					/>
 				</Form.Group>
-				<Form.Group>
+				{/* <Form.Group>
 					<Form.Label>Category</Form.Label>
 					<Form.Control as='select'>
 						<option>1</option>
@@ -89,7 +90,7 @@ const GiftForm = () => {
 						<option>3</option>
 						<option>4</option>
 					</Form.Control>
-				</Form.Group>
+				</Form.Group> */}
 				<Button variant='primary' type='submit'>
 					Submit
 				</Button>
