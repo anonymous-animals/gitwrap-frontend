@@ -28,7 +28,7 @@ const GiftList = ({ match, gifts, setGifts }) => {
 					return (
 						<div key={gift.name}>
 							<div>
-								<Link to={`/gifts/${match.params.category}/${gift.name}`}>
+								<Link to={`/gifts/${match.params.category}/${gift.id}`}>
 									<img src={gift.image} alt={gift.name} />
 									<h3>{gift.name}</h3>
 								</Link>
