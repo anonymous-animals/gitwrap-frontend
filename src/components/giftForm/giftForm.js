@@ -92,10 +92,7 @@ const GiftForm = () => {
 						<option>sports</option>
 					</Form.Control>
 				</Form.Group>
-				<Button
-					variant='primary'
-					type='submit'
-					onClick={() => setSubmitted(true)}>
+				<Button variant='primary' type='submit'>
 					Submit
 				</Button>
 			</Form>
