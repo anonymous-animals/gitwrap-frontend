@@ -12,7 +12,7 @@ const GiftForm = () => {
 		image: '',
 		price: '',
 		purchaseLink: '',
-		category: ['adventure'],
+		category: 'adventure',
 	});
 	const handleChange = (event) => {
 		event.preventDefault();
@@ -29,15 +29,14 @@ const GiftForm = () => {
 		history.push('/');
 	};
 	return (
-		<div class='form'>
+		<div className='form'>
 			<h2>Add A New Gift</h2>
-			<Form onSubmit={handleSubmit} class='formContainer'>
+			<Form onSubmit={handleSubmit} className='formContainer'>
 				<Form.Group>
 					<Form.Label htmlFor='name'>Name</Form.Label>
 					<Form.Control
 						type='name'
 						name='name'
-						id='name'
 						onChange={handleChange}
 						value={gift.name}
 						placeholder='name of gift'
@@ -48,7 +47,6 @@ const GiftForm = () => {
 							as='textarea'
 							rows={3}
 							name='description'
-							id='description'
 							onChange={handleChange}
 							value={gift.description}
 							placeholder='brief description'
@@ -58,7 +56,6 @@ const GiftForm = () => {
 					<Form.Control
 						type='img-url'
 						name='image'
-						id='image'
 						onChange={handleChange}
 						value={gift.image}
 						placeholder='image url please'
@@ -67,7 +64,6 @@ const GiftForm = () => {
 					<Form.Control
 						type='price'
 						name='price'
-						id='price'
 						onChange={handleChange}
 						value={gift.price}
 						placeholder='$0.00'
@@ -76,7 +72,6 @@ const GiftForm = () => {
 					<Form.Control
 						type='purchase-link'
 						name='purchase-link'
-						id='purchase-link'
 						onChange={handleChange}
 						value={gift.link}
 						placeholder='purchase url please'

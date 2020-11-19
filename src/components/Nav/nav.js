@@ -13,10 +13,10 @@ const nav = () => {
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Collapse id='basic-navbar-nav'>
 					<Nav className='mr-auto'>
-						<Link to='/add-gift' class='nav-link'>
+						<Link to='/add-gift' className='nav-link'>
 							Add a Gift
 						</Link>
-						<Link to='/favorites' class='nav-link'>
+						<Link to='/favorites' className='nav-link'>
 							Favorites
 						</Link>
 					</Nav>

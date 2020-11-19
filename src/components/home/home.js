@@ -20,7 +20,7 @@ const Home = () => {
 					return (
 						<div key={category}>
 							<div>
-								<Link to={`/${category}`}>
+								<Link to={`/category/${category}`}>
 									<Card style={{ width: '18rem' }}>
 										<Card.Body>
 											<Card.Title>{category}</Card.Title>
