@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 	useEffect(() => {
@@ -36,6 +37,14 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 			},
 		]);
 	};
+	const handleDelete = () => {
+		// Write your DELETE fetch() or axios() request here
+		axios({
+			method: 'DELETE',
+			url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
+		});
+	};
+
 	if (!gifts) {
 		return <h1>Loading...</h1>;
 	}
@@ -56,7 +65,9 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 					<Button variant='outline-warning' onClick={editShowPage}>
 						Edit
 					</Button>
-					<Button variant='outline-danger'>Delete</Button>
+					<Button variant='outline-danger' onClick={handleDelete}>
+						Delete
+					</Button>
 
 					<Button variant='outline-primary' onClick={handleClick}>
 						Add to Favorites
