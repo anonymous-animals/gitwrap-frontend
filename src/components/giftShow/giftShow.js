@@ -54,6 +54,7 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 			url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
 			data: gift,
 		});
+		setShowModal(false);
 	};
 
 	const handleDelete = () => {
@@ -159,7 +160,7 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 								<option>sports</option>
 							</Form.Control>
 						</Form.Group>
-						<Button type='submit' onClick={handleClose}>
+						<Button type='submit' onClick={handleSubmit}>
 							Submit
 						</Button>
 					</div>
