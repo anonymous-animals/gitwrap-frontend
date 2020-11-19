@@ -23,57 +23,62 @@ const Home = () => {
 	];
 
 	return (
-		<div className="container">
-			<div id='welcome-area'>
+		<div className='container'>
+			<div className='welcome-area'>
 				<h1>welcome.</h1>
 				<h3> find the perfect gift for everyone on your list.</h3>
-				<Button variant='outline-primary'>Browse by Category</Button>
-				<Button variant='outline-primary'>Browse by Price</Button>
+				<Button href='#category' variant='outline-primary'>
+					Browse by Category
+				</Button>
+				<Button href='#price' variant='outline-primary'>
+					Browse by Price
+				</Button>
 			</div>
 
-			<div className='category-container'>
+			<div id="category" className='section-container'>
 				<h3>Browse Gifts By Category</h3>
-				{giftCategories.map((category) => {
-					return (
-						<div key={category}>
-							<div>
-								<Link to={`/${category}`}>
-									<Card style={{ width: '20rem', height: '20rem' }}>
-										<Card.Body>
-											<Card.Title>{category}</Card.Title>
-											<Card.Text>
-												Some quick example text to build on the card title and
-												make up the bulk of the card's content.
-											</Card.Text>
-										</Card.Body>
-									</Card>
-								</Link>
+				<div className='category-area'>
+					{giftCategories.map((category) => {
+						return (
+							<div key={category}>
+								<div class='card-div'>
+									<Link to={`/${category}`}>
+										<Card style={{ width: '20rem', height: '15rem' }}>
+											<Card.Body>
+												<Card.Title>{category}</Card.Title>
+											</Card.Body>
+										</Card>
+									</Link>
+								</div>
 							</div>
-						</div>
-					);
-				})}
+						);
+					})}
+				</div>
 			</div>
-			<div className='category-container'>
+
+			<div id='price' className='section-container'>
 				<h3>Browse Gifts By Price</h3>
-				{priceCategories.map((category) => {
-					return (
-						<div key={category}>
-							<div>
-								<Link to={`/${category}`}>
-									<Card style={{ width: '20rem', height: '20rem' }}>
-										<Card.Body>
-											<Card.Title>{category}</Card.Title>
-											<Card.Text>
-												Some quick example text to build on the card title and
-												make up the bulk of the card's content.
-											</Card.Text>
-										</Card.Body>
-									</Card>
-								</Link>
+				<div className='category-area'>
+					{priceCategories.map((category) => {
+						return (
+							<div key={category}>
+								<div>
+									<Link to={`/${category}`}>
+										<Card style={{ width: '20rem', height: '15rem' }}>
+											<Card.Body>
+												<Card.Title>{category}</Card.Title>
+												<Card.Text>
+													Some quick example text to build on the card title and
+													make up the bulk of the card's content.
+												</Card.Text>
+											</Card.Body>
+										</Card>
+									</Link>
+								</div>
 							</div>
-						</div>
-					);
-				})}
+						);
+					})}
+				</div>
 			</div>
 		</div>
 	);
