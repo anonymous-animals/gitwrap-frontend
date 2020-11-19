@@ -14,6 +14,9 @@ import './giftShow.css';
 
 const GiftShow = ({ match, favorites, setFavorites }) => {
 	const [gift, setGift] = useState();
+	const [showModal, setShowModal] = useState(false);
+	const [deleteAlert, setDeleteAlert] = useState(false);
+	const [editAlert, setEditAlert] = useState(false);
 
 	useEffect(() => {
 		const giftUrl = `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`;
@@ -26,15 +29,6 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 
 			.catch(console.error);
 	}, []);
-	const [modal, setModal] = useState(false);
-
-	const editShowPage = () => {
-		setModal(true);
-	};
-
-	const closeModal = () => {
-		setModal(false);
-	};
 
 	const handleClick = (event) => {
 		event.preventDefault();
@@ -51,10 +45,10 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 	const handleChange = (event) => {
 		event.preventDefault();
 		setGift({ ...gift, [event.target.name]: event.target.value });
+		setEditAlert(true);
 	};
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		// Write your PUT fetch() or axios() request here
 		axios({
 			method: 'PATCH',
 			url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
@@ -63,16 +57,12 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 	};
 
 	const handleDelete = () => {
-		// Write your DELETE fetch() or axios() request here
 		axios({
 			method: 'DELETE',
 			url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
 		});
 		setDeleteAlert(true);
 	};
-
-	const [showModal, setShowModal] = useState(false);
-	const [deleteAlert, setDeleteAlert] = useState(false);
 
 	const handleClose = () => setShowModal(false);
 	const handleShow = () => setShowModal(true);
@@ -89,6 +79,15 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 					dismissible>
 					<Alert.Heading>Success!</Alert.Heading>
 					Your gift has been successfully deleted
+				</Alert>
+			) : null}
+			{editAlert ? (
+				<Alert
+					variant='success'
+					onClose={() => setEditAlert(false)}
+					dismissible>
+					<Alert.Heading>Success!</Alert.Heading>
+					Your gift has been successfully edited
 				</Alert>
 			) : null}
 			{showModal ? (
@@ -160,10 +159,9 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 								<option>sports</option>
 							</Form.Control>
 						</Form.Group>
-						<Button variant='primary' type='submit'>
+						<Button type='submit' onClick={handleClose}>
 							Submit
 						</Button>
-						<Button onClick={handleClose}>Close</Button>
 					</div>
 				</Modal>
 			) : null}
