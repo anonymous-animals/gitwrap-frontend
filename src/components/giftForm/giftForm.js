@@ -12,7 +12,7 @@ const GiftForm = () => {
 		image: '',
 		price: '',
 		purchaseLink: '',
-		category: ['adventure'],
+		category: 'adventure',
 	});
 	const handleChange = (event) => {
 		event.preventDefault();
@@ -31,7 +31,7 @@ const GiftForm = () => {
 	return (
 		<div className='form'>
 			<h2>Add A New Gift</h2>
-			<Form onSubmit={handleSubmit} class='formContainer'>
+			<Form onSubmit={handleSubmit} className='formContainer'>
 				<Form.Group>
 					<Form.Label htmlFor='name'>Name</Form.Label>
 					<Form.Control
