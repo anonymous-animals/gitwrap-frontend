@@ -175,7 +175,9 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 				<ListGroup className='list-group-flush'>
 					<ListGroupItem>{gift.price}</ListGroupItem>
 					<ListGroupItem>{gift.category}</ListGroupItem>
-					<Card.Link href='#'>Buy Now</Card.Link>
+					<Card.Link href={gift.link} target='_blank'>
+						Buy Now
+					</Card.Link>
 				</ListGroup>
 				<Card.Body>
 					<Button variant='outline-warning' onClick={handleShow}>
