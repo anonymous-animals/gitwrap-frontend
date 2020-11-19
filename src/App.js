@@ -21,6 +21,8 @@ function App() {
 			<main>
 				<Switch>
 					<Route exact path='/' render={() => <Home />} />
+					<Route path='/add-gift' component={GiftForm} />
+					<Route path='/favorites' component={Favorites} />
 					<Route
 						exact
 						path='/gifts/:id'
@@ -34,8 +36,6 @@ function App() {
 							/>
 						)}
 					/>
-					<Route path='/add-gift' component={GiftForm} />
-					<Route path='/favorites' component={Favorites} />
 					<Route
 						exact
 						path='/:category'
