@@ -6,6 +6,7 @@ import {
 	Button,
 	Form,
 	Modal,
+	Alert,
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -67,9 +68,11 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 			method: 'DELETE',
 			url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
 		});
+		setDeleteAlert(true);
 	};
 
 	const [showModal, setShowModal] = useState(false);
+	const [deleteAlert, setDeleteAlert] = useState(false);
 
 	const handleClose = () => setShowModal(false);
 	const handleShow = () => setShowModal(true);
@@ -79,6 +82,15 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 	}
 	return (
 		<div>
+			{deleteAlert ? (
+				<Alert
+					variant='danger'
+					onClose={() => setDeleteAlert(false)}
+					dismissible>
+					<Alert.Heading>Success!</Alert.Heading>
+					Your gift has been successfully deleted
+				</Alert>
+			) : null}
 			{showModal ? (
 				<Modal
 					show={showModal}

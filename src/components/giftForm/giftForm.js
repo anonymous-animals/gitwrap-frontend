@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './giftForm.css';
@@ -18,7 +18,6 @@ const GiftForm = () => {
 		event.preventDefault();
 		setGift({ ...gift, [event.target.name]: event.target.value });
 	};
-
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
@@ -93,7 +92,10 @@ const GiftForm = () => {
 						<option>sports</option>
 					</Form.Control>
 				</Form.Group>
-				<Button variant='primary' type='submit'>
+				<Button
+					variant='primary'
+					type='submit'
+					onClick={() => setSubmitted(true)}>
 					Submit
 				</Button>
 			</Form>
