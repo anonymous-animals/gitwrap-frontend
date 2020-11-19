@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './giftShow.css';
 
-const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
+const GiftShow = ({ match, favorites, setFavorites }) => {
+	const [gift, setGift] = useState();
+
 	useEffect(() => {
 		const giftUrl = `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`;
 
 		fetch(giftUrl)
 			.then((res) => res.json())
 			.then((res) => {
-				setGifts(res);
-				console.log(res);
+				setGift(res);
 			})
 
 			.catch(console.error);
@@ -21,7 +23,6 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 	const editShowPage = () => {
 		setModal(true);
 	};
-	console.log(modal);
 
 	const closeModal = () => {
 		setModal(false);
@@ -29,20 +30,19 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 
 	const handleClick = (event) => {
 		event.preventDefault();
-		console.log(modal);
 		setFavorites([
 			...favorites,
 			{
-				name: gifts.name,
-				image: gifts.image,
-				id: gifts.id,
-				category: gifts.category,
+				name: gift.name,
+				image: gift.image,
+				id: gift.id,
+				category: gift.category,
 			},
 		]);
 	};
 	const handleChange = (event) => {
 		event.preventDefault();
-		setGifts({ ...gifts, [event.target.name]: event.target.value });
+		setGift({ ...gift, [event.target.name]: event.target.value });
 	};
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -50,7 +50,7 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 		axios({
 			method: 'PATCH',
 			url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
-			data: gifts,
+			data: gift,
 		});
 	};
 
@@ -62,7 +62,7 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 		});
 	};
 
-	if (!gifts) {
+	if (!gift) {
 		return <h1>Loading...</h1>;
 	}
 	return (
@@ -73,9 +73,9 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 						<h2>Edit this show:</h2>
 						<form onSubmit={handleSubmit}>
 							<label htmlFor='name' />
-							<input onChange={handleChange} name='name' value={gifts.name} />
-							<input onChange={handleChange} name='image' value={gifts.image} />
-							<input onChange={handleChange} name='price' value={gifts.price} />
+							<input onChange={handleChange} name='name' value={gift.name} />
+							<input onChange={handleChange} name='image' value={gift.image} />
+							<input onChange={handleChange} name='price' value={gift.price} />
 							<br />
 							<button type='submit'>Submit</button>
 						</form>
@@ -84,14 +84,14 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 				</div>
 			) : null}
 			<Card style={{ width: '18rem' }}>
-				<Card.Img variant='top' src={gifts.image} />
+				<Card.Img variant='top' src={gift.image} />
 				<Card.Body>
-					<Card.Title>{gifts.name}</Card.Title>
-					<Card.Text>{gifts.description}</Card.Text>
+					<Card.Title>{gift.name}</Card.Title>
+					<Card.Text>{gift.description}</Card.Text>
 				</Card.Body>
 				<ListGroup className='list-group-flush'>
-					<ListGroupItem>{gifts.price}</ListGroupItem>
-					<ListGroupItem>{gifts.category}</ListGroupItem>
+					<ListGroupItem>{gift.price}</ListGroupItem>
+					<ListGroupItem>{gift.category}</ListGroupItem>
 					<Card.Link href='#'>Buy Now</Card.Link>
 				</ListGroup>
 				<Card.Body>
@@ -107,6 +107,9 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 					</Button>
 				</Card.Body>
 			</Card>
+			<Link to='/'>
+				<Button variant='outline-primary'>Back to Home</Button>
+			</Link>
 		</div>
 	);
 };
