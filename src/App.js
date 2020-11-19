@@ -13,6 +13,7 @@ import GiftShow from './components/giftShow/giftShow';
 function App() {
 	const [gifts, setGifts] = useState([]);
 	const [favorites, setFavorites] = useState([]);
+	// const [submitted, setSubmitted] = useState(false);
 
 	return (
 		<div className='App'>
