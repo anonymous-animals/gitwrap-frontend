@@ -23,17 +23,6 @@ function App() {
 					<Route exact path='/' render={() => <Home />} />
 					<Route
 						exact
-						path='/:category'
-						render={(routerProps) => (
-							<GiftList
-								gifts={gifts}
-								setGifts={setGifts}
-								match={routerProps.match}
-							/>
-						)}
-					/>
-					<Route
-						exact
 						path='/gifts/:id'
 						render={(routerProps) => (
 							<GiftShow
@@ -47,6 +36,17 @@ function App() {
 					/>
 					<Route path='/add-gift' component={GiftForm} />
 					<Route path='/favorites' component={Favorites} />
+					<Route
+						exact
+						path='/:category'
+						render={(routerProps) => (
+							<GiftList
+								gifts={gifts}
+								setGifts={setGifts}
+								match={routerProps.match}
+							/>
+						)}
+					/>
 				</Switch>
 			</main>
 		</div>

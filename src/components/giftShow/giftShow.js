@@ -4,7 +4,6 @@ import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 	useEffect(() => {
 		const giftUrl = `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`;
-	
 
 		fetch(giftUrl)
 			.then((res) => res.json())
@@ -15,10 +14,15 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 
 			.catch(console.error);
 	}, []);
+	const [modal, setModal] = useState(false);
 
-	if (!gifts) {
-		return null;
-	}
+	const editShowPage = () => {
+		setModal(true);
+	};
+
+	const closeModal = () => {
+		setModal(false);
+	};
 
 	const handleClick = (event) => {
 		event.preventDefault();
@@ -32,7 +36,9 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 			},
 		]);
 	};
-
+	if (!gifts) {
+		return <h1>Loading...</h1>;
+	}
 	return (
 		<div>
 			<Card style={{ width: '18rem' }}>
@@ -47,7 +53,9 @@ const GiftShow = ({ match, favorites, setFavorites, gifts, setGifts }) => {
 					<Card.Link href='#'>Buy Now</Card.Link>
 				</ListGroup>
 				<Card.Body>
-					<Button variant='outline-warning'>Edit</Button>
+					<Button variant='outline-warning' onClick={editShowPage}>
+						Edit
+					</Button>
 					<Button variant='outline-danger'>Delete</Button>
 
 					<Button variant='outline-primary' onClick={handleClick}>
