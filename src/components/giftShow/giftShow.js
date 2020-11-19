@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import {
+	Card,
+	ListGroup,
+	ListGroupItem,
+	Button,
+	Form,
+	Modal,
+} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './giftShow.css';
@@ -62,26 +69,91 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 		});
 	};
 
+	const [showModal, setShowModal] = useState(false);
+
+	const handleClose = () => setShowModal(false);
+	const handleShow = () => setShowModal(true);
+
 	if (!gift) {
 		return <h1>Loading...</h1>;
 	}
 	return (
 		<div>
-			{modal ? (
-				<div className='edit-modal'>
+			{showModal ? (
+				<Modal
+					show={showModal}
+					onHide={handleClose}
+					backdrop='static'
+					keyboard={false}>
 					<div className='modal-form'>
-						<h2>Edit this show:</h2>
-						<form onSubmit={handleSubmit}>
-							<label htmlFor='name' />
-							<input onChange={handleChange} name='name' value={gift.name} />
-							<input onChange={handleChange} name='image' value={gift.image} />
-							<input onChange={handleChange} name='price' value={gift.price} />
-							<br />
-							<button type='submit'>Submit</button>
-						</form>
-						<button onClick={closeModal}>Close</button>
+						<h2>Edit this gift:</h2>
+						<Form.Group>
+							<Form.Label htmlFor='name'>Name</Form.Label>
+							<Form.Control
+								type='name'
+								name='name'
+								onChange={handleChange}
+								value={gift.name}
+								placeholder='name of gift'
+							/>
+							<Form.Group>
+								<Form.Label>Description</Form.Label>
+								<Form.Control
+									as='textarea'
+									rows={3}
+									name='description'
+									onChange={handleChange}
+									value={gift.description}
+									placeholder='brief description'
+								/>
+							</Form.Group>
+							<Form.Label>Image</Form.Label>
+							<Form.Control
+								type='img-url'
+								name='image'
+								onChange={handleChange}
+								value={gift.image}
+								placeholder='image url please'
+							/>
+							<Form.Label>Price</Form.Label>
+							<Form.Control
+								type='price'
+								name='price'
+								onChange={handleChange}
+								value={gift.price}
+								placeholder='$0.00'
+							/>
+							<Form.Label>Purchase Link</Form.Label>
+							<Form.Control
+								type='purchase-link'
+								name='purchase-link'
+								onChange={handleChange}
+								value={gift.link}
+								placeholder='purchase url please'
+							/>
+						</Form.Group>
+						<Form.Group>
+							<Form.Label>Category</Form.Label>
+							<Form.Control
+								as='select'
+								onChange={handleChange}
+								value={gift.category}
+								type='category'
+								name='category'>
+								<option>tech</option>
+								<option>food</option>
+								<option>music</option>
+								<option>adventure</option>
+								<option>movies</option>
+								<option>sports</option>
+							</Form.Control>
+						</Form.Group>
+						<Button variant='primary' type='submit'>
+							Submit
+						</Button>
+						<Button onClick={handleClose}>Close</Button>
 					</div>
-				</div>
+				</Modal>
 			) : null}
 			<Card style={{ width: '18rem' }}>
 				<Card.Img variant='top' src={gift.image} />
@@ -95,7 +167,7 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 					<Card.Link href='#'>Buy Now</Card.Link>
 				</ListGroup>
 				<Card.Body>
-					<Button variant='outline-warning' onClick={editShowPage}>
+					<Button variant='outline-warning' onClick={handleShow}>
 						Edit
 					</Button>
 					<Button variant='outline-danger' onClick={handleDelete}>
