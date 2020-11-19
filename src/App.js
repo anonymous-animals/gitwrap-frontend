@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import NotFound from './components/notFound/notFound';
 import './App.css';
 
 import Nav from './components/Nav/nav';
@@ -38,7 +39,7 @@ function App() {
 					/>
 					<Route
 						exact
-						path='/:category'
+						path='/category/:category'
 						render={(routerProps) => (
 							<GiftList
 								gifts={gifts}
@@ -47,6 +48,7 @@ function App() {
 							/>
 						)}
 					/>
+					<Route component={NotFound} />
 				</Switch>
 			</main>
 		</div>

@@ -10,7 +10,6 @@ const GiftList = ({ match, gifts, setGifts }) => {
 			.then((res) => res.json())
 			.then((res) => {
 				setGifts(res);
-				console.log(res);
 			})
 			.catch((err) => {
 				console.error(err);
@@ -18,14 +17,8 @@ const GiftList = ({ match, gifts, setGifts }) => {
 	}, []);
 
 	if (!gifts) {
-		return null;
+		return <div>Loading...</div>;
 	}
-
-// function handleClick(event) {
-// 	console.log(event)
-	
-// }
-
 	return (
 		<div>
 			<h1>
@@ -38,7 +31,6 @@ const GiftList = ({ match, gifts, setGifts }) => {
 					return (
 						<div key={gift._id}>
 							<div>
-								{console.log(gift._id)}
 								<Link to={`/gifts/${gift._id}`}>
 									<img src={gift.image} alt={gift.name} />
 									<h3>{gift.name}</h3>
