@@ -1,7 +1,5 @@
 .container {
 	scroll-snap-type: mandatory;
-	/* scroll-padding: 50%; */
-	/* margin: auto; */
 	max-width: 1200px;
 }
 
@@ -16,15 +14,15 @@
 	margin: auto;
 }
 
-.img-container {
-	margin-left: 100px;
-	grid-row: 3;
-	margin: auto;
-	align-items: center;
-	justify-content: center;
+.image-container {
+	width: 600px;
+	display: flex;
+	flex-direction: column;
+	
 }
-.img-container img {
-	margin: auto;
+
+.image-container img {
+	align-self: center;
 }
 
 h1,
