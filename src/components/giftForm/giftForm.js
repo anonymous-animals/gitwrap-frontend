@@ -38,7 +38,7 @@ const GiftForm = () => {
 						name='name'
 						onChange={handleChange}
 						value={gift.name}
-						placeholder='name of gift'
+						placeholder='Name of Gift'
 					/>
 					<Form.Group>
 						<Form.Label>Description</Form.Label>
@@ -48,7 +48,7 @@ const GiftForm = () => {
 							name='description'
 							onChange={handleChange}
 							value={gift.description}
-							placeholder='brief description'
+							placeholder='Brief Description'
 						/>
 					</Form.Group>
 					<Form.Label>Image</Form.Label>
@@ -57,7 +57,7 @@ const GiftForm = () => {
 						name='image'
 						onChange={handleChange}
 						value={gift.image}
-						placeholder='image url please'
+						placeholder='Image Url Please'
 					/>
 					<Form.Label>Price</Form.Label>
 					<Form.Control
@@ -73,7 +73,7 @@ const GiftForm = () => {
 						name='purchase-link'
 						onChange={handleChange}
 						value={gift.link}
-						placeholder='purchase url please'
+						placeholder='Purchase Url Please'
 					/>
 				</Form.Group>
 				<Form.Group>

@@ -1,6 +1,13 @@
 .form {
 	display: grid;
 	justify-content: center;
+	padding: 75px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: white;
+	border-radius: 15px;
 }
 
 h2 {
