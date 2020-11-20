@@ -9,6 +9,8 @@ import Favorites from './components/favorites/favorites'
 import GiftForm from './components/giftForm/giftForm';
 import GiftList from './components/giftList/giftList';
 import GiftShow from './components/giftShow/giftShow';
+import Price from './components/price/price';
+import GiftListPrice from './components/giftListPrice/giftListPrice'
 
 function App() {
 	const [gifts, setGifts] = useState([]);
@@ -52,6 +54,15 @@ function App() {
 								match={routerProps.match}
 							/>
 						)}
+					/>
+					<Route exact path='/price/:price'
+					render = {(routerProps) => (
+						<GiftListPrice
+						gifts={gifts}
+						setGifts={setGifts}
+						match={routerProps.match}
+						/>
+					)}
 					/>
 					<Route component={NotFound} />
 				</Switch>

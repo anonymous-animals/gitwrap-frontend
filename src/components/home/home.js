@@ -23,6 +23,15 @@ const Home = () => {
 		'A real splurge',
 	];
 
+	const price = [
+		'25',
+		'50',
+		'100',
+		'150',
+		'300',
+		'2000'
+	]
+
 	return (
 		<div className='container'>
 			<div className='welcome-area'>
@@ -73,14 +82,14 @@ const Home = () => {
 			<div id='price' className='section-container'>
 				<h3>Browse Gifts By Price</h3>
 				<div className='category-area'>
-					{priceCategories.map((category) => {
+					{price.map((price) => {
 						return (
-							<div key={category}>
+							<div key={price}>
 								<div>
-									<Link to={`category/${category}`}>
+									<Link to={`price/${price}`}>
 										<Card style={{ width: '20rem', height: '15rem' }}>
 											<Card.Body>
-												<Card.Title>{category}</Card.Title>
+												<Card.Title>Under ${price}</Card.Title>
 											</Card.Body>
 										</Card>
 									</Link>
