@@ -5,28 +5,31 @@ import './App.css';
 
 import Nav from './components/Nav/nav';
 import Home from './components/home/home';
-import Favorites from './components/favorites/favorites'
+import Favorites from './components/favorites/favorites';
 import GiftForm from './components/giftForm/giftForm';
 import GiftList from './components/giftList/giftList';
 import GiftShow from './components/giftShow/giftShow';
-import GiftListPrice from './components/giftListPrice/giftListPrice'
-import Login from './components/login/login'
+import GiftListPrice from './components/giftListPrice/giftListPrice';
+import Login from './components/login/login';
+import UserForm from './components/userForm/userForm';
 
 function App() {
 	const [gifts, setGifts] = useState([]);
 	const [favorites, setFavorites] = useState([]);
+	const [logged, setLogged] = useState(false);
 	// const [submitted, setSubmitted] = useState(false);
 
 	return (
 		<div className='App'>
 			<header>
-				<Nav />
+				<Nav logged={logged} />
+				{logged ? null : <Login />}
 			</header>
 			<main>
 				<Switch>
 					<Route exact path='/' render={() => <Home />} />
 					<Route path='/add-gift' component={GiftForm} />
-					<Route path='/login' component={Login} />
+					<Route path='/add-user' component={UserForm} />
 					<Route
 						exact
 						path='/favorites'

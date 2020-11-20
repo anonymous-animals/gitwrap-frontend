@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Modal } from 'react-bootstrap';
 import axios from 'axios';
 import './login.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 	const [user, setUser] = useState({
@@ -9,6 +10,9 @@ const Login = () => {
 		email: '',
 		password: '',
 	});
+	const [showModal, setShowModal] = useState(true);
+	const handleClose = () => setShowModal(false);
+	const handleShow = () => setShowModal(true);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -25,39 +29,41 @@ const Login = () => {
 	};
 
 	return (
-		<div className='userFormContainer'>
-			<h1>Login</h1>
-			<Form onSubmit={handleSubmit} className='userForm'>
-				<Form.Group>
-					<Form.Label> Username </Form.Label>
-					<Form.Control
-						type='username'
-						name='username'
-						onChange={handleChange}
-						value={user.username}
-						placeholder='Enter Username'
-					/>
-					<Form.Label>E mail</Form.Label>
-					<Form.Control
-						type='email'
-						name='email'
-						onChange={handleChange}
-						value={user.email}
-						placeholder='user@example.com'
-					/>
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						type='password'
-						name='password'
-						onChange={handleChange}
-						value={user.password}
-						placeholder='Enter Password'
-					/>
-				</Form.Group>
-				<Button variant='primary' type='submit'>
-					Submit
-				</Button>
-			</Form>
+		<div className='loginFormContainer'>
+			<Modal
+				show={showModal}
+				onHide={handleClose}
+				backdrop='static'
+				keyboard={false}>
+				<h2>Welcome</h2>
+				<h3>Please log in to find your perfect gift</h3>
+				<Form onSubmit={handleSubmit} className='loginForm'>
+					<Form.Group>
+						<Form.Label> Username </Form.Label>
+						<Form.Control
+							type='username'
+							name='username'
+							onChange={handleChange}
+							value={user.username}
+							placeholder='Enter Username'
+						/>
+						<Form.Label>Password</Form.Label>
+						<Form.Control
+							type='password'
+							name='password'
+							onChange={handleChange}
+							value={user.password}
+							placeholder='Enter Password'
+						/>
+					</Form.Group>
+					<Button variant='primary' className='login-button' type='submit'>
+						Submit
+					</Button>
+					<Link to='/add-user' className='login-button' onClick={handleClose}>
+						I'm new here
+					</Link>
+				</Form>
+			</Modal>
 		</div>
 	);
 };

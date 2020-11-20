@@ -1,0 +1,9 @@
+.loginForm {
+	padding: 2em;
+	display: grid;
+}
+
+.login-button {
+	display: inline;
+	margin: 1em;
+}

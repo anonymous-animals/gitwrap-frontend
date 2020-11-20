@@ -3,7 +3,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './nav.css';
 
-const nav = () => {
+const nav = ({ logged }) => {
 	return (
 		<div>
 			<Navbar bg='light' expand='lg'>
@@ -19,6 +19,15 @@ const nav = () => {
 						<Link to='/favorites' className='nav-link'>
 							Favorites
 						</Link>
+						{logged ? (
+							<Link to='/login' className='nav-link'>
+								Login
+							</Link>
+						) : (
+							<Link to='/login' className='nav-link'>
+								Logout
+							</Link>
+						)}
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
