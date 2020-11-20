@@ -166,15 +166,17 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 					</div>
 				</Modal>
 			) : null}
-			<Card style={{ width: '18rem' }}>
+			<Card style={{ width: '30rem' }}>
 				<Card.Img variant='top' src={gift.image} />
 				<Card.Body>
 					<Card.Title>{gift.name}</Card.Title>
 					<Card.Text>{gift.description}</Card.Text>
 				</Card.Body>
 				<ListGroup className='list-group-flush'>
-					<ListGroupItem>{gift.price}</ListGroupItem>
-					<ListGroupItem>{gift.category}</ListGroupItem>
+					<ListGroupItem>${gift.price}</ListGroupItem>
+					<ListGroupItem>
+						Category: {gift.category}
+					</ListGroupItem>
 					<Card.Link href={gift.link} target='_blank'>
 						Buy Now
 					</Card.Link>

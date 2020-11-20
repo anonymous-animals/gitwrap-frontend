@@ -23,7 +23,7 @@ const GiftList = ({ match, gifts, setGifts }) => {
 		<div>
 			<h1>
 				{match.params.category.charAt(0).toUpperCase() +
-					match.params.category.slice(1)}
+					match.params.category.slice(1)}{' '}
 				Gifts
 			</h1>
 			<div className='gift-container'>

@@ -28,7 +28,7 @@ const Home = () => {
 			<div className='welcome-area'>
 				<h1>welcome.</h1>
 				<h3> find the perfect gift for everyone on your list.</h3>
-				<div id='img-container'>
+				<div className='img-container'>
 					<img src={StockPhoto} />
 				</div>
 				<div id='button-div'>
@@ -81,10 +81,6 @@ const Home = () => {
 										<Card style={{ width: '20rem', height: '15rem' }}>
 											<Card.Body>
 												<Card.Title>{category}</Card.Title>
-												<Card.Text>
-													Some quick example text to build on the card title and
-													make up the bulk of the card's content.
-												</Card.Text>
 											</Card.Body>
 										</Card>
 									</Link>
