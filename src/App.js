@@ -5,7 +5,7 @@ import './App.css';
 
 import Nav from './components/Nav/nav';
 import Home from './components/home/home';
-import Favorites from './components/favorites/favorites';
+import Favorites from './components/favorites/favorites'
 import GiftForm from './components/giftForm/giftForm';
 import GiftList from './components/giftList/giftList';
 import GiftShow from './components/giftShow/giftShow';
@@ -24,7 +24,11 @@ function App() {
 				<Switch>
 					<Route exact path='/' render={() => <Home />} />
 					<Route path='/add-gift' component={GiftForm} />
-					<Route path='/favorites' component={Favorites} />
+					<Route
+						exact
+						path='/favorites'
+						render={() => <Favorites favorites={favorites} />}
+					/>
 					<Route
 						exact
 						path='/gifts/:id'
