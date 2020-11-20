@@ -6,7 +6,7 @@ const loggin = () => {
     return (
 			<div>
                 <h1>Loggin</h1>
-				<Form>
+				<Form onSubmit={handleSubmit}>
 					<Form.Group controlId='formGroupEmail'>
 						<Form.Label>Email address</Form.Label>
 						<Form.Control type='email' placeholder='Enter email' />
