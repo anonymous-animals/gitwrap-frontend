@@ -39,7 +39,7 @@ const Login = ({ setToken, setLoggedIn }) => {
 	return (
 		<div className='userFormContainer'>
 			<h1>Welcome to Gitwrap</h1>
-			<h3>Please login to begin</h3>
+			<h3>Please Login to Begin</h3>
 			<Modal
 				show={showModal}
 				onHide={handleClose}
@@ -58,7 +58,7 @@ const Login = ({ setToken, setLoggedIn }) => {
 						value={user.username}
 						placeholder='Enter Username'
 					/>
-					<Form.Label>E mail</Form.Label>
+					<Form.Label>E-mail</Form.Label>
 					<Form.Control
 						type='email'
 						name='email'
@@ -83,7 +83,7 @@ const Login = ({ setToken, setLoggedIn }) => {
 					Submit
 				</Button>
 				<Button className='login-button' onClick={handleShow}>
-					I'm new here
+					I'm New Here
 				</Button>
 			</Form>
 		</div>

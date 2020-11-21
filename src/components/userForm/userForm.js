@@ -29,7 +29,7 @@ const Login = ({ handleClose }) => {
 
 	return (
 		<div className='userFormContainer'>
-			<h1>create a username to begin</h1>
+			<h1>Create a Username to Begin</h1>
 			<Form onSubmit={handleSubmit} className='userForm'>
 				<Form.Group>
 					<Form.Label> Username </Form.Label>
@@ -64,6 +64,13 @@ const Login = ({ handleClose }) => {
 						type='submit'
 						onClick={handleSubmit}>
 						Submit
+					</Button>
+					<Button
+						variant='primary'
+						className='login-button'
+						type='submit'
+						onClick={handleClose}>
+						Close
 					</Button>
 				</Link>
 			</Form>
