@@ -16,7 +16,11 @@ function App() {
 	const [gifts, setGifts] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [token, setToken] = useState('')
-	// const [submitted, setSubmitted] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false)
+  
+  // if (token) {
+  //   setLoggedIn(true)
+  // }
 
 	return (
 		<div className='App'>
@@ -29,7 +33,7 @@ function App() {
 					<Route path='/add-gift' component={GiftForm} />
 					<Route
 						path='/login'
-						render={() => <Login token={token} setToken={setToken} />}
+						render={() => <Login token={token} setToken={setToken} loggedIn={loggedIn}/>}
 					/>
 					<Route
 						exact

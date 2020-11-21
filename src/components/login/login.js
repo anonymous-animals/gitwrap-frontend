@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import './login.css';
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, loggedIn }) => {
 	const [user, setUser] = useState({
 		username: '',
 		email: '',
@@ -17,9 +17,10 @@ const Login = ({ setToken }) => {
 			// url: 'https://gitwrap-backend.herokuapp.com//user/signin/',
 			url: 'http://localhost:4000/user/signin/',
 			data: user,
-		}).then((res) => {
-			console.log(res);
+		})
+		.then((res) => {
 			setToken(res.data.token);
+			console.log(res);
 		});
 	};
 
