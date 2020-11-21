@@ -3,7 +3,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './nav.css';
 
-const nav = () => {
+const nav = ({ setToken, setLoggedIn }) => {
 	return (
 		<div>
 			<Navbar bg='light' expand='lg'>
@@ -18,6 +18,15 @@ const nav = () => {
 						</Link>
 						<Link to='/favorites' className='nav-link'>
 							Favorites
+						</Link>
+						<Link
+							to='#'
+							className='nav-link'
+							onClick={() => {
+								setToken('');
+								setLoggedIn(false);
+							}}>
+							Logout
 						</Link>
 					</Nav>
 				</Navbar.Collapse>

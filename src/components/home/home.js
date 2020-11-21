@@ -23,19 +23,12 @@ const Home = () => {
 		'A real splurge',
 	];
 
-	const price = [
-		'25',
-		'50',
-		'100',
-		'150',
-		'300',
-		'2000'
-	]
+	const price = ['25', '50', '100', '150', '300', '2000'];
 
 	return (
 		<div className='container'>
 			<div className='welcome-area'>
-				<h1>welcome.</h1>
+				<h1>welcome</h1>
 				<h3> find the perfect gift for everyone on your list.</h3>
 				<div className='img-container'>
 					<img src={StockPhoto} />
@@ -64,7 +57,7 @@ const Home = () => {
 					{giftCategories.map((category) => {
 						return (
 							<div key={category}>
-								<div class='card-div'>
+								<div className='card-div'>
 									<Link to={`/category/${category}`}>
 										<Card style={{ width: '20rem', height: '15rem' }}>
 											<Card.Body>

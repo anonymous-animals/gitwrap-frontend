@@ -1,34 +1,25 @@
 import React, { useState } from 'react';
-import { Form, Button, Modal } from 'react-bootstrap';
-import NewUser from '../userForm/userForm';
+import { Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './login.css';
+import './userForm.css';
 
-const Login = ({ setToken, setLoggedIn }) => {
+const Login = ({ handleClose }) => {
 	const [user, setUser] = useState({
 		username: '',
 		email: '',
 		password: '',
 	});
 
-	const [showModal, setShowModal] = useState(false);
-	const handleClose = () => setShowModal(false);
-	const handleShow = () => setShowModal(true);
-
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
 			// url: 'https://gitwrap-backend.herokuapp.com//user/signin/',
-			url: 'http://localhost:4000/user/signin/',
+			url: 'http://localhost:4000/user/signup/',
 			data: user,
-		})
-			.then((res) => {
-				setToken(res.data.token);
-			})
-			.then(() => {
-				setLoggedIn(true);
-			});
+		});
+		handleClose();
 	};
 
 	const handleChange = (event) => {
@@ -38,16 +29,7 @@ const Login = ({ setToken, setLoggedIn }) => {
 
 	return (
 		<div className='userFormContainer'>
-			<h1>Welcome to Gitwrap</h1>
-			<h3>Please login to begin</h3>
-			<Modal
-				show={showModal}
-				onHide={handleClose}
-				backdrop='static'
-				keyboard={false}
-				className='modal-form'>
-				<NewUser handleClose={handleClose} />
-			</Modal>
+			<h1>create a username to begin</h1>
 			<Form onSubmit={handleSubmit} className='userForm'>
 				<Form.Group>
 					<Form.Label> Username </Form.Label>
@@ -75,16 +57,15 @@ const Login = ({ setToken, setLoggedIn }) => {
 						placeholder='Enter Password'
 					/>
 				</Form.Group>
-				<Button
-					variant='primary'
-					className='login-button'
-					type='submit'
-					onClick={handleSubmit}>
-					Submit
-				</Button>
-				<Button className='login-button' onClick={handleShow}>
-					I'm new here
-				</Button>
+				<Link to='/login'>
+					<Button
+						variant='primary'
+						className='login-button'
+						type='submit'
+						onClick={handleSubmit}>
+						Submit
+					</Button>
+				</Link>
 			</Form>
 		</div>
 	);
