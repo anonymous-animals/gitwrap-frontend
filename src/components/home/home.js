@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import './home.css';
-import StockPhoto from '../../stockphoto.png';
+import StockPhoto from '../../imgs/stockphoto.png';
 
 const Home = () => {
 	const giftCategories = [
@@ -14,14 +14,14 @@ const Home = () => {
 		'sports',
 	];
 
-	const priceCategories = [
-		'under $25',
-		'under $50',
-		'under $100',
-		'under $150',
-		'under $300',
-		'A real splurge',
-	];
+	// const priceCategories = [
+	// 	'under $25',
+	// 	'under $50',
+	// 	'under $100',
+	// 	'under $150',
+	// 	'under $300',
+	// 	'A real splurge',
+	// ];
 
 	const price = ['25', '50', '100', '150', '300', '2000'];
 

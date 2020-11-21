@@ -95,7 +95,9 @@ function App() {
 				</div>
 			)}
 			<footer>
-				<p>&copy; 2020 Anonymous Animals</p>
+				<div>
+					<p>&copy; 2020 Anonymous Animals</p>
+				</div>
 			</footer>
 		</div>
 	);

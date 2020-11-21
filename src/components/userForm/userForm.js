@@ -28,8 +28,8 @@ const Login = ({ handleClose }) => {
 	};
 
 	return (
-		<div className='userFormContainer'>
-			<h1>Create a Username to Begin</h1>
+		<div className='modal-container'>
+			<h1>Create an Account</h1>
 			<Form onSubmit={handleSubmit} className='userForm'>
 				<Form.Group>
 					<Form.Label> Username </Form.Label>
@@ -40,7 +40,7 @@ const Login = ({ handleClose }) => {
 						value={user.username}
 						placeholder='Enter Username'
 					/>
-					<Form.Label>E mail</Form.Label>
+					<Form.Label>E-mail</Form.Label>
 					<Form.Control
 						type='email'
 						name='email'
@@ -60,14 +60,14 @@ const Login = ({ handleClose }) => {
 				<Link to='/login'>
 					<Button
 						variant='primary'
-						className='login-button'
+						className='login-button-modal1'
 						type='submit'
 						onClick={handleSubmit}>
 						Submit
 					</Button>
 					<Button
 						variant='primary'
-						className='login-button'
+						className='login-button-modal'
 						type='submit'
 						onClick={handleClose}>
 						Close
