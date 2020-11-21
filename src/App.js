@@ -14,7 +14,8 @@ import Login from './components/login/login'
 
 function App() {
 	const [gifts, setGifts] = useState([]);
-	const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const [token, setToken] = useState('')
 	// const [submitted, setSubmitted] = useState(false);
 
 	return (
@@ -26,7 +27,10 @@ function App() {
 				<Switch>
 					<Route exact path='/' render={() => <Home />} />
 					<Route path='/add-gift' component={GiftForm} />
-					<Route path='/login' component={Login} />
+					<Route
+						path='/login'
+						render={() => <Login token={token} setToken={setToken} />}
+					/>
 					<Route
 						exact
 						path='/favorites'
@@ -52,7 +56,8 @@ function App() {
 							<GiftList
 								gifts={gifts}
 								setGifts={setGifts}
-								match={routerProps.match}
+                match={routerProps.match}
+                token={token}
 							/>
 						)}
 					/>

@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import './login.css';
 
-const Login = () => {
+const Login = ({ setToken }) => {
 	const [user, setUser] = useState({
 		username: '',
 		email: '',
@@ -14,8 +14,12 @@ const Login = () => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
+			// url: 'https://gitwrap-backend.herokuapp.com//user/signin/',
 			url: 'http://localhost:4000/user/signin/',
 			data: user,
+		}).then((res) => {
+			console.log(res);
+			setToken(res.data.token);
 		});
 	};
 

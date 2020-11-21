@@ -2,11 +2,17 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './giftList.css';
 
-const GiftList = ({ match, gifts, setGifts }) => {
-	useEffect(() => {
-		const giftsUrl = `https://gitwrap-backend.herokuapp.com/gifts/category/${match.params.category}`;
+const GiftList = ({ match, gifts, setGifts, token }) => {
 
-		fetch(giftsUrl)
+	useEffect(() => {
+		// const giftsUrl = `https://gitwrap-backend.herokuapp.com/gifts/category/${match.params.category}`;
+		const giftsUrl = `http://localhost:4000/gifts/category/${match.params.category}`;
+
+		fetch(giftsUrl, {
+			headers: {
+				"Authorization": `Bearer ${token}`
+			}
+		})
 			.then((res) => res.json())
 			.then((res) => {
 				setGifts(res);
