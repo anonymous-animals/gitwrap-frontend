@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import './home.css';
 import StockPhoto from '../../imgs/stockphoto.png';
+import Blue from '../../imgs/'
 
 const Home = () => {
 	const giftCategories = [
@@ -28,12 +29,15 @@ const Home = () => {
 	return (
 		<div className='container'>
 			<div className='welcome-area'>
-				<h1>welcome</h1>
-				<h3> find the perfect gift for everyone on your list.</h3>
+				<h1>Welcome to Gitwrap</h1>
+				<h3>
+					{' '}
+					Let us help you find the perfect gift for everyone on your list.
+				</h3>
 				<div className='img-container'>
 					<img src={StockPhoto} />
 				</div>
-				<div id='button-div'>
+				<div id='home-button-container'>
 					<Button
 						className='home-button'
 						href='#category'
@@ -52,7 +56,7 @@ const Home = () => {
 			</div>
 
 			<div id='category' className='section-container'>
-				<h3>Browse Gifts By Category</h3>
+				<h2>Browse Gifts By Category</h2>
 				<div className='category-area'>
 					{giftCategories.map((category) => {
 						return (
@@ -73,7 +77,7 @@ const Home = () => {
 			</div>
 
 			<div id='price' className='section-container'>
-				<h3>Browse Gifts By Price</h3>
+				<h2>Browse Gifts By Price</h2>
 				<div className='category-area'>
 					{price.map((price) => {
 						return (
