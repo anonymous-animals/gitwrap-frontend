@@ -30,6 +30,8 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 			.catch(console.error);
 	}, []);
 
+
+
 	const handleClick = (event) => {
 		event.preventDefault();
 		setFavorites([
@@ -37,8 +39,11 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 			{
 				name: gift.name,
 				image: gift.image,
-				id: gift.id,
-				category: gift.category
+				id: gift._id,
+				category: gift.category,
+				description: gift.description,
+				link: gift.link,
+				price: gift.price,
 			},
 		]);
 	};
@@ -166,37 +171,43 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 					</div>
 				</Modal>
 			) : null}
-			<Card style={{ width: '30rem' }}>
-				<Card.Img variant='top' src={gift.image} />
-				<Card.Body>
-					<Card.Title>{gift.name}</Card.Title>
-					<Card.Text>{gift.description}</Card.Text>
-				</Card.Body>
-				<ListGroup className='list-group-flush'>
-					<ListGroupItem>${gift.price}</ListGroupItem>
-					<ListGroupItem>
-						Category: {gift.category}
-					</ListGroupItem>
-					<Card.Link href={gift.link} target='_blank'>
-						Buy Now
-					</Card.Link>
-				</ListGroup>
-				<Card.Body>
-					<Button variant='outline-warning' onClick={handleShow}>
-						Edit
-					</Button>
-					<Button variant='outline-danger' onClick={handleDelete}>
-						Delete
-					</Button>
 
-					<Button variant='outline-primary' onClick={handleClick}>
-						Add to Favorites
-					</Button>
-				</Card.Body>
-			</Card>
-			<Link to='/'>
-				<Button variant='outline-primary'>Back to Home</Button>
-			</Link>
+			<div className='gift-card'>
+				<Card style={{ width: '30rem' }}>
+					<Card.Img variant='top' src={gift.image} />
+					<Card.Body>
+						<Card.Title>{gift.name}</Card.Title>
+						<Card.Text>{gift.description}</Card.Text>
+					</Card.Body>
+					<ListGroup className='list-group-flush'>
+						<ListGroupItem>${gift.price}</ListGroupItem>
+						<ListGroupItem>Category: {gift.category.map((type) => {
+							return(
+								<p>{type}</p>
+							)
+						})}</ListGroupItem>
+						<Card.Link href={gift.link} target='_blank'>
+							Buy Now
+						</Card.Link>
+					</ListGroup>
+					<div className='modal-buttons'>
+					<Card.Body>
+						<Button variant='outline-warning' className='button' onClick={handleShow}>
+							Edit
+						</Button>
+						<Button variant='outline-danger' className='button' onClick={handleDelete}>
+							Delete
+						</Button>
+						<Button variant='outline-primary' className='button' onClick={handleClick}>
+							Add to Favorites
+						</Button>
+					</Card.Body>
+					</div>
+				</Card>
+				<Link to='/'>
+					<Button variant='outline-primary' class-Name='back-to-home-button'>Back to Home</Button>
+				</Link>
+			</div>
 		</div>
 	);
 };

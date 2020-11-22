@@ -94,6 +94,11 @@ function App() {
 					</main>
 				</div>
 			)}
+			<footer>
+				<div>
+					<p>&copy; 2020 Anonymous Animals</p>
+				</div>
+			</footer>
 		</div>
 	);
 }

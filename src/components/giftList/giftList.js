@@ -5,8 +5,8 @@ import './giftList.css';
 const GiftList = ({ match, gifts, setGifts, token }) => {
 
 	useEffect(() => {
-		// const giftsUrl = `https://gitwrap-backend.herokuapp.com/gifts/category/${match.params.category}`;
-		const giftsUrl = `http://localhost:4000/gifts/category/${match.params.category}`;
+		const giftsUrl = `https://gitwrap-backend.herokuapp.com/gifts/category/${match.params.category.toLowerCase()}`;
+		// const giftsUrl = `http://localhost:4000/gifts/category/${match.params.category}`;
 
 		fetch(giftsUrl, {
 			headers: {
@@ -35,10 +35,10 @@ const GiftList = ({ match, gifts, setGifts, token }) => {
 			<div className='gift-container'>
 				{gifts.map((gift) => {
 					return (
-						<div key={gift._id}>
+						<div key={gift._id} className='card'>
 							<div>
 								<Link to={`/gifts/${gift._id}`}>
-									<img src={gift.image} alt={gift.name} />
+									<img className='card-image' src={gift.image} alt={gift.name} />
 									<h3>{gift.name}</h3>
 								</Link>
 							</div>
