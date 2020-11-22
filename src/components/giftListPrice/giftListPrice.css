@@ -1,0 +1,34 @@
+h1 {
+	text-align: center;
+}
+
+.gift-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-auto-rows: minmax(200px, auto);
+	grid-gap: 2rem;
+	margin: 1rem;
+	max-width: 1200px;
+	padding: 1rem;
+  color: black;
+  place-items: center;
+}
+
+.gift-container img {
+	width: 100%;
+}
+
+.gift-container h3 {
+	color: black;
+}
+
+img {
+	max-width: 80%;
+}
+
+.card {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+}

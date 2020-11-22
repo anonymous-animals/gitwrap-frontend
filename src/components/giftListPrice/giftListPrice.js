@@ -27,12 +27,12 @@ const GiftList = ({ match, gifts, setGifts }) => {
 			<div className='gift-container'>
 				{gifts.map((gift) => {
 					return (
-						<div key={gift._id}>
+						<div key={gift._id} className='card'>
 							<div>
 								<Link to={`/gifts/${gift._id}`}>
 									<img src={gift.image} alt={gift.name} />
 									<h3>{gift.name}</h3>
-                                    <h5>${gift.price}</h5>
+                  <h5>${gift.price}</h5>
 								</Link>
 							</div>
 						</div>
