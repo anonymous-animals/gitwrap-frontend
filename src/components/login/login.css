@@ -1,13 +1,27 @@
 body {
 	font-family: 'Roboto Condensed', sans-serif;
+	min-height: 200px;
+	margin-bottom: 10rem;
 }
 
 .userFormContainer {
 	margin: auto;
 	border-color: navy;
-	border: solid;
-	border-radius: 15px;
-	max-width: 75vw;
+	/* border: solid;
+	/* border-radius: 15px; */
+	max-width: 65vw;
+	padding: 6rem ;
+	background-image: url('../../imgs/greylong.png');
+	background-size: 100%;
+
+
+}
+
+.userForm {
+	
+	align-self: center;
+	min-width: 3rem;
+	min-height: 6rem;
 }
 
 .login-button {
