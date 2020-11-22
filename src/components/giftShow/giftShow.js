@@ -37,8 +37,11 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 			{
 				name: gift.name,
 				image: gift.image,
-				id: gift.id,
-				category: gift.category
+				id: gift._id,
+				category: gift.category,
+				description: gift.description,
+				link: gift.link,
+				price: gift.price,
 			},
 		]);
 	};

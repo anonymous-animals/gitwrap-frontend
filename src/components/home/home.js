@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import './home.css';
 import StockPhoto from '../../imgs/stockphoto.png';
-import Blue from '../../imgs/'
+// import Blue from '../../imgs/'
 
 const Home = () => {
 	const giftCategories = [
@@ -37,7 +37,7 @@ const Home = () => {
 				<div className='img-container'>
 					<img src={StockPhoto} />
 				</div>
-				<div id='home-button-container'>
+				<div className='home-button-container'>
 					<Button
 						className='home-button'
 						href='#category'

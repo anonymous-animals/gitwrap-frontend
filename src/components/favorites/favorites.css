@@ -1,0 +1,17 @@
+.favorites-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  margin: 5%;
+}
+
+
+.card {
+  text-align: center;
+  padding: 1rem;
+}
+
+img {
+  max-width: 100%;
+  object-fit: contain;
+}
