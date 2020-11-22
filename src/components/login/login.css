@@ -1,0 +1,50 @@
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.userFormContainer {
+	margin: auto;
+	border-color: navy;
+	border: solid;
+	border-radius: 15px;
+	max-width: 75vw;
+}
+
+.login-button {
+	margin: 0 5px 10px 0;
+}
+
+.modal-form {
+	box-shadow: 3px 3px 5px 6px rgb(192, 192, 192);
+	border-radius: 1px;
+	border: 2px solid darkgray;
+	padding: 2em;
+}
+
+.img-container img {
+	max-width: 30%;
+	height: auto;
+}
+
+.img-container {
+	display: flex;
+	justify-content: center;
+}
+
+.form-group {
+	margin: 50px 50px 10px 50px;
+}
+
+h5 {
+	text-align: center;
+	margin: 50px;
+}
+
+.button-container {
+	max-width: 1200px;
+	margin-left: 50px;
+}
+
+.form-label {
+	margin: 1px 0 0 0;
+}

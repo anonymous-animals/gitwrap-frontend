@@ -1,18 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './giftList.css';
+import './giftListPrice.css';
 
-const GiftList = ({ match, gifts, setGifts, token }) => {
-
+const GiftList = ({ match, gifts, setGifts }) => {
 	useEffect(() => {
-		const giftsUrl = `https://gitwrap-backend.herokuapp.com/gifts/category/${match.params.category.toLowerCase()}`;
-		// const giftsUrl = `http://localhost:4000/gifts/category/${match.params.category}`;
+		const giftsUrl = `https://gitwrap-backend.herokuapp.com/gifts/price/${match.params.price}`;
 
-		fetch(giftsUrl, {
-			headers: {
-				"Authorization": `Bearer ${token}`
-			}
-		})
+		fetch(giftsUrl)
 			.then((res) => res.json())
 			.then((res) => {
 				setGifts(res);
@@ -28,9 +22,7 @@ const GiftList = ({ match, gifts, setGifts, token }) => {
 	return (
 		<div>
 			<h1>
-				{match.params.category.charAt(0).toUpperCase() +
-					match.params.category.slice(1)}{' '}
-				Gifts
+			Under $	{match.params.price} Gifts
 			</h1>
 			<div className='gift-container'>
 				{gifts.map((gift) => {
@@ -38,8 +30,9 @@ const GiftList = ({ match, gifts, setGifts, token }) => {
 						<div key={gift._id} className='card'>
 							<div>
 								<Link to={`/gifts/${gift._id}`}>
-									<img className='card-image' src={gift.image} alt={gift.name} />
+									<img src={gift.image} alt={gift.name} />
 									<h3>{gift.name}</h3>
+                  <h5>${gift.price}</h5>
 								</Link>
 							</div>
 						</div>

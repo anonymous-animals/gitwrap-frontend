@@ -1,0 +1,28 @@
+.card-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  padding: 10px;
+  margin: 10px;
+}
+
+.large-container {
+  display: grid;
+  grid-template-columns: minmax(150px, 25%) 1fr;
+}
+
+.total {
+  padding: 5%;
+  margin: 5%
+}
+
+.card {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.large-container img {
+  max-width: 100%;
+}
