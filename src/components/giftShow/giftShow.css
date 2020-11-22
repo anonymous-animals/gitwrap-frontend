@@ -4,3 +4,29 @@
 	border: 2px solid darkgray;
 	padding: 2em;
 }
+
+.gift-card {
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+}
+
+.modal-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.button {
+	flex: 1 1 150px;
+	flex: 0 1 150px;
+	margin: 1rem;
+}
+
+/* p {
+	display: inline
+} */
+
+p:first-letter {
+	text-transform: capitalize
+}
