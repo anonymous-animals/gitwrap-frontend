@@ -4,7 +4,6 @@ import './favorites.css'
 
 const Favorites = ({ favorites }) => {
 	const [totalPrice, setTotalPrice] = useState(0)
-	console.log(favorites)
 
 	let total = 0
 	if (favorites) {
@@ -23,6 +22,7 @@ const Favorites = ({ favorites }) => {
 			<h1>Favorites</h1>
 			<div className='large-container'>
 			<div className='total'>
+				<h1>Wishlist Items</h1>
 				{favorites.map((favorite) => {
 					return(
 						<div key={favorite.name}>
@@ -31,7 +31,7 @@ const Favorites = ({ favorites }) => {
 						</div>
 					)
 				})}
-				<h2>Total: ${totalPrice}</h2>
+				<h3>Total: ${totalPrice}</h3>
 			</div>
 
 			<div className='card-container'>

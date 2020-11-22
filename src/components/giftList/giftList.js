@@ -38,7 +38,7 @@ const GiftList = ({ match, gifts, setGifts, token }) => {
 						<div key={gift._id} className='card'>
 							<div>
 								<Link to={`/gifts/${gift._id}`}>
-									<img src={gift.image} alt={gift.name} />
+									<img className='card-image' src={gift.image} alt={gift.name} />
 									<h3>{gift.name}</h3>
 								</Link>
 							</div>

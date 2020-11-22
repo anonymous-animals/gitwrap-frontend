@@ -17,7 +17,7 @@ function App() {
 	const [gifts, setGifts] = useState([]);
 	const [favorites, setFavorites] = useState([]);
 	const [token, setToken] = useState(null);
-	const [loggedIn, setLoggedIn] = useState(true);
+	const [loggedIn, setLoggedIn] = useState(false);
 
 	return (
 		<div className='App'>

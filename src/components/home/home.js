@@ -35,18 +35,18 @@ const Home = () => {
 					Let us help you find the perfect gift for everyone on your list.
 				</h3>
 				<div className='img-container'>
-					<img className='Ximage' src={LandingImage} />
+					<img className='image' src={LandingImage} />
 				</div>
 				<div className='home-button-container'>
 					<Button
-						className='Xhome-button'
+						className='home-button'
 						href='#category'
 						variant='outline-primary'
 						size='lg'>
 						Browse by Category
 					</Button>
 					<Button
-						className='Xhome-button'
+						className='home-button'
 						href='#price'
 						variant='outline-primary'
 						size='lg'>
@@ -64,8 +64,8 @@ const Home = () => {
 								<div className='card-div'>
 									<Link to={`/category/${category}`}>
 										<Card style={{ width: '15rem', height: '12rem' }}>
-											<Card.Body className='Xcategory-card-body'>
-												<Card.Title className='Xcategory-card-text'><p>{category}</p></Card.Title>
+											<Card.Body className='category-card-body'>
+												<Card.Title className='category-card-text'><p>{category}</p></Card.Title>
 											</Card.Body>
 										</Card>
 									</Link>
@@ -85,8 +85,8 @@ const Home = () => {
 								<div>
 									<Link to={`price/${price}`}>
 										<Card style={{ width: '15rem', height: '12rem' }}>
-											<Card.Body className='Xprice-card-body'>
-												<Card.Title className='Xprice-card-text'>Under ${price}</Card.Title>
+											<Card.Body className='price-card-body'>
+												<Card.Title className='price-card-text'>Under ${price}</Card.Title>
 											</Card.Body>
 										</Card>
 									</Link>
