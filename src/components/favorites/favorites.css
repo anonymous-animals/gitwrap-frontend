@@ -1,23 +1,28 @@
-.large-container {
-  display: grid;
-  grid-template-columns: minmax(150px, 25%) 1fr;
-}
-
-.card-container {
+/* .favorites-container {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
   margin: 5%;
-}
+} */
 
-.card {
+/* .large-container {
+  display: grid;
+  grid-template-columns: minmax(150px, 25%) 1fr;
+} */
+
+/* .total {
+  padding: 5%;
+  margin: 5%
+} */
+
+/* .card {
   display: grid;
   place-items: center;
   text-align: center;
   padding: 1rem;
-}
+} */
 
-img {
+/* img {
   max-width: 100%;
   object-fit: contain;
-}
+} */

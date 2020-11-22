@@ -2,17 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import './home.css';
-import StockPhoto from '../../imgs/stockphoto.png';
-// import Blue from '../../imgs/'
+import LandingImage from '../../imgs/landing-image.png';
+
 
 const Home = () => {
 	const giftCategories = [
-		'tech',
-		'food',
-		'music',
-		'adventure',
-		'movies',
-		'sports',
+		'Tech',
+		'Food',
+		'Music',
+		'Adventure',
+		'Movies',
+		'Sports',
 	];
 
 	// const priceCategories = [
@@ -35,18 +35,18 @@ const Home = () => {
 					Let us help you find the perfect gift for everyone on your list.
 				</h3>
 				<div className='img-container'>
-					<img src={StockPhoto} />
+					<img className='Ximage' src={LandingImage} />
 				</div>
 				<div className='home-button-container'>
 					<Button
-						className='home-button'
+						className='Xhome-button'
 						href='#category'
 						variant='outline-primary'
 						size='lg'>
 						Browse by Category
 					</Button>
 					<Button
-						className='home-button'
+						className='Xhome-button'
 						href='#price'
 						variant='outline-primary'
 						size='lg'>
@@ -63,9 +63,9 @@ const Home = () => {
 							<div key={category}>
 								<div className='card-div'>
 									<Link to={`/category/${category}`}>
-										<Card style={{ width: '20rem', height: '15rem' }}>
-											<Card.Body>
-												<Card.Title>{category}</Card.Title>
+										<Card style={{ width: '15rem', height: '12rem' }}>
+											<Card.Body className='Xcategory-card-body'>
+												<Card.Title className='Xcategory-card-text'><p>{category}</p></Card.Title>
 											</Card.Body>
 										</Card>
 									</Link>
@@ -84,9 +84,9 @@ const Home = () => {
 							<div key={price}>
 								<div>
 									<Link to={`price/${price}`}>
-										<Card style={{ width: '20rem', height: '15rem' }}>
-											<Card.Body>
-												<Card.Title>Under ${price}</Card.Title>
+										<Card style={{ width: '15rem', height: '12rem' }}>
+											<Card.Body className='Xprice-card-body'>
+												<Card.Title className='Xprice-card-text'>Under ${price}</Card.Title>
 											</Card.Body>
 										</Card>
 									</Link>

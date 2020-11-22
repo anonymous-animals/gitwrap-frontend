@@ -22,7 +22,7 @@ const Favorites = ({ favorites }) => {
 		<div>
 			<h1>Favorites</h1>
 			<div className='large-container'>
-			<div>
+			<div className='total'>
 				{favorites.map((favorite) => {
 					return(
 						<div key={favorite.name}>
