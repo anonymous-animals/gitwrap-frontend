@@ -19,8 +19,12 @@ const nav = ({ setToken, setLoggedIn }) => {
 						<Link to='/favorites' className='nav-link'>
 							Favorites
 						</Link>
+						<Link to='/login' className='nav-link'>
+							Log In
+						</Link>
+
 						<Link
-							to='#'
+							to='/login'
 							className='nav-link'
 							onClick={() => {
 								setToken('');

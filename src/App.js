@@ -21,8 +21,8 @@ function App() {
 
 	return (
 		<div className='App'>
-			{!loggedIn ? (
-				<Login token={token} setToken={setToken} setLoggedIn={setLoggedIn} />
+			{loggedIn ? (
+				<Login token={token} setToken={setToken} setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
 			) : (
 				<div>
 					<header>
