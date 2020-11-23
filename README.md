@@ -4,6 +4,9 @@ Gitwrap is a gift guide application for choosing your next great gift. Looking f
 
 ## Features
 
+![](login.gif)
+![](CRUD.gif)
+
 As a user I want to be able to go to the landing page which displays categories
 As a user, I want to be able to navigate to my wishlist/favorite list from the landing page
 As a user, I wish to click into a category to display its categories’ contents
@@ -13,6 +16,8 @@ As a user, i want to be able to create gifts inside of a category that I am look
 As a user, I want to be able to read my wishlist and see the displayed item
 As a user, I want to be able to update my wishlist with the picked item in a category
 As a user, I want to be able to delete an item in a wishlist that I choose to delete
+
+![wireframe1](palette.png)
 
 ## Technologies Used
 
