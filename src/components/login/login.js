@@ -25,8 +25,8 @@ const Login = ({ setToken, setLoggedIn, loggedIn }) => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-			// url: 'https://gitwrap-backend.herokuapp.com/user/signin/',
-			url: 'http://localhost:4000/user/signin/',
+			url: 'https://gitwrap-backend.herokuapp.com/user/signin/',
+			//url: 'http://localhost:4000/user/signin/',
 			data: user,
 		})
 			.then((res) => {
