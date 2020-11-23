@@ -5,7 +5,7 @@ import axios from 'axios';
 import Logo from '../../imgs/gitwrapLogo.png'
 import './login.css';
 
-const Login = ({ setToken, setLoggedIn }) => {
+const Login = ({ setToken, setLoggedIn, loggedIn }) => {
 	const [user, setUser] = useState({
 		username: '',
 		email: '',
@@ -15,22 +15,30 @@ const Login = ({ setToken, setLoggedIn }) => {
 	const [showModal, setShowModal] = useState(false);
 	const handleClose = () => setShowModal(false);
 	const handleShow = () => setShowModal(true);
+	const [error, setError] = useState('')
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-			url: 'https://gitwrap-backend.herokuapp.com/user/signin/',
-			//url: 'http://localhost:4000/user/signin/',
+			// url: 'https://gitwrap-backend.herokuapp.com/user/signin/',
+			url: 'http://localhost:4000/user/signin/',
 			data: user,
 		})
 			.then((res) => {
 				setToken(res.data.token);
+				if(res.data.token) {
+					setLoggedIn(true)
+
+				} else {
+					// console.log(res)
+					setError(res.data)
+				}
 			})
-			.then(() => {
-				setLoggedIn(true);
-			});
+			.catch(console.error)
 	};
+
+	
 
 	const handleChange = (event) => {
 		event.preventDefault();
@@ -44,6 +52,7 @@ const Login = ({ setToken, setLoggedIn }) => {
 			</div>
 			<div className='userFormContainer'>
 				<h5>Login to Find the Perfect Gift!</h5>
+				<h5 className='error'>{error}</h5>
 				<Modal
 					show={showModal}
 					onHide={handleClose}
