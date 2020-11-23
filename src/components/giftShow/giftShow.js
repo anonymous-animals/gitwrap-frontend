@@ -20,6 +20,7 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 
 	useEffect(() => {
 		const giftUrl = `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`;
+		// const giftUrl = `http://localhost:4000/gifts/${match.params.id}`;
 
 		fetch(giftUrl)
 			.then((res) => res.json())
@@ -29,8 +30,6 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 
 			.catch(console.error);
 	}, []);
-
-
 
 	const handleClick = (event) => {
 		event.preventDefault();
@@ -52,11 +51,16 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 		setGift({ ...gift, [event.target.name]: event.target.value });
 		setEditAlert(true);
 	};
+	const handleSelection = (event) => {
+		event.preventDefault();
+		setGift({ ...gift, [event.target.name]: event.target.value });
+	};
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
 			method: 'PATCH',
 			url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
+			// url: `http://localhost:4000/gifts/${match.params.id}`,
 			data: gift,
 		});
 		setShowModal(false);
@@ -66,6 +70,7 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 		axios({
 			method: 'DELETE',
 			url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
+			// url: `http://localhost:4000/gifts/${match.params.id}`,
 		});
 		setDeleteAlert(true);
 	};
@@ -181,31 +186,44 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 					</Card.Body>
 					<ListGroup className='list-group-flush'>
 						<ListGroupItem>${gift.price}</ListGroupItem>
-						<ListGroupItem>Category: {gift.category.map((type) => {
-							return(
-								<p>{type}</p>
-							)
-						})}</ListGroupItem>
+						<ListGroupItem>
+							Category:
+							<br />
+							{typeof gift.category === 'string'
+								? gift.category.charAt(0).toUpperCase() + gift.category.slice(1)
+								: gift.category.map((type) => <p>{type}</p>)}
+						</ListGroupItem>
 						<Card.Link href={gift.link} target='_blank'>
 							Buy Now
 						</Card.Link>
 					</ListGroup>
 					<div className='modal-buttons'>
-					<Card.Body>
-						<Button variant='outline-warning' className='button' onClick={handleShow}>
-							Edit
-						</Button>
-						<Button variant='outline-danger' className='button' onClick={handleDelete}>
-							Delete
-						</Button>
-						<Button variant='outline-primary' className='button' onClick={handleClick}>
-							Add to Favorites
-						</Button>
-					</Card.Body>
+						<Card.Body>
+							<Button
+								variant='outline-warning'
+								className='button'
+								onClick={handleShow}>
+								Edit
+							</Button>
+							<Button
+								variant='outline-danger'
+								className='button'
+								onClick={handleDelete}>
+								Delete
+							</Button>
+							<Button
+								variant='outline-primary'
+								className='button'
+								onClick={handleClick}>
+								Add to Favorites
+							</Button>
+						</Card.Body>
 					</div>
 				</Card>
 				<Link to='/'>
-					<Button variant='outline-primary' class-Name='back-to-home-button'>Back to Home</Button>
+					<Button variant='outline-primary' class-Name='back-to-home-button'>
+						Back to Home
+					</Button>
 				</Link>
 			</div>
 		</div>

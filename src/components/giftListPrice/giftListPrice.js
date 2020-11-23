@@ -5,6 +5,7 @@ import './giftListPrice.css';
 const GiftList = ({ match, gifts, setGifts }) => {
 	useEffect(() => {
 		const giftsUrl = `https://gitwrap-backend.herokuapp.com/gifts/price/${match.params.price}`;
+		//const giftsUrl = `http://localhost:4000/gifts/price/${match.params.price}`;
 
 		fetch(giftsUrl)
 			.then((res) => res.json())

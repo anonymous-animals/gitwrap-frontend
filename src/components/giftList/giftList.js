@@ -6,7 +6,7 @@ const GiftList = ({ match, gifts, setGifts, token }) => {
 
 	useEffect(() => {
 		const giftsUrl = `https://gitwrap-backend.herokuapp.com/gifts/category/${match.params.category.toLowerCase()}`;
-		// const giftsUrl = `http://localhost:4000/gifts/category/${match.params.category}`;
+		//const giftsUrl = `http://localhost:4000/gifts/category/${match.params.category}`;
 
 		fetch(giftsUrl, {
 			headers: {

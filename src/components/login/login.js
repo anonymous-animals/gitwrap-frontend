@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Form, Button, Modal } from 'react-bootstrap';
+import Home from '../home/home';
 import NewUser from '../userForm/userForm';
 import axios from 'axios';
-import Logo from '../../imgs/gitwrapLogo.png'
+import Logo from '../../imgs/gitwrapLogo.png';
 import './login.css';
 
-const Login = ({ setToken, setLoggedIn }) => {
+
+const Login = ({ setToken, setLoggedIn, loggedIn }) => {
 	const [user, setUser] = useState({
 		username: '',
 		email: '',
@@ -15,6 +18,8 @@ const Login = ({ setToken, setLoggedIn }) => {
 	const [showModal, setShowModal] = useState(false);
 	const handleClose = () => setShowModal(false);
 	const handleShow = () => setShowModal(true);
+	const [error, setError] = useState('');
+	
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -26,10 +31,15 @@ const Login = ({ setToken, setLoggedIn }) => {
 		})
 			.then((res) => {
 				setToken(res.data.token);
+				if (res.data.token) {
+					setLoggedIn(true)
+					window.location.href = '/'
+				} else {
+					// console.log(res)
+					setError(res.data);
+				}
 			})
-			.then(() => {
-				setLoggedIn(true);
-			});
+			.catch(console.error);
 	};
 
 	const handleChange = (event) => {
@@ -37,6 +47,9 @@ const Login = ({ setToken, setLoggedIn }) => {
 		setUser({ ...user, [event.target.name]: event.target.value });
 	};
 
+	// if (redirect) {
+	// 	<Redirect to='/' />;
+	// }
 	return (
 		<div>
 			<div className='img-container'>
@@ -44,6 +57,7 @@ const Login = ({ setToken, setLoggedIn }) => {
 			</div>
 			<div className='userFormContainer'>
 				<h5>Login to Find the Perfect Gift!</h5>
+				<h5 className='error'>{error}</h5>
 				<Modal
 					show={showModal}
 					onHide={handleClose}

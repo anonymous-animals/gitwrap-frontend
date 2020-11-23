@@ -7,12 +7,12 @@ import LandingImage from '../../imgs/landing-image.png';
 
 const Home = () => {
 	const giftCategories = [
-		'Tech',
-		'Food',
-		'Music',
-		'Adventure',
-		'Movies',
-		'Sports',
+		'tech',
+		'food',
+		'music',
+		'adventure',
+		'movies',
+		'sports',
 	];
 
 	// const priceCategories = [
