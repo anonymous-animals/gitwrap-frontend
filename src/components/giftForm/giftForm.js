@@ -44,7 +44,7 @@ const GiftForm = () => {
 					/>
 					<Form.Group>
 						<Form.Label>Description</Form.Label>
-						<Form.Control
+						<Form.Control className='textinput'
 							as='textarea'
 							rows={3}
 							name='description'
@@ -94,7 +94,7 @@ const GiftForm = () => {
 						<option>sports</option>
 					</Form.Control>
 				</Form.Group>
-				<Button variant='primary' type='submit'>
+				<Button className='buttons' variant='primary' type='submit'>
 					Submit
 				</Button>
 			</Form>
