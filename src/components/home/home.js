@@ -3,16 +3,21 @@ import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import './home.css';
 import LandingImage from '../../imgs/landing-image.png';
-
+import techimg from '../../imgs/Techimage.png';
+import foodimage from '../../imgs/foodimage.png';
+import musicimage from '../../imgs/musicimg.png';
+import adventureimage from '../../imgs/adventureimg.png';
+import moviesimage from '../../imgs/movieimg.png';
+import sportsimage from '../../imgs/sportsimg.png';
 
 const Home = () => {
 	const giftCategories = [
-		'tech',
-		'food',
-		'music',
-		'adventure',
-		'movies',
-		'sports',
+		{ name: 'tech', image:techimg},
+		{ name: 'food', image: foodimage},
+		{ name: 'music', image: musicimage},
+		{ name: 'adventure', image: adventureimage }  ,
+		{ name: 'sports', image:  sportsimage  },
+		{ name: 'movies', image:  moviesimage  },
 	];
 
 	// const priceCategories = [
@@ -34,9 +39,9 @@ const Home = () => {
 					{' '}
 					Let us help you find the perfect gift for everyone on your list.
 				</h3>
-				<div className='img-container'>
+				
 					<img className='image' src={LandingImage} />
-				</div>
+				
 				<div className='home-button-container'>
 					<Button
 						className='home-button'
@@ -56,17 +61,15 @@ const Home = () => {
 			</div>
 
 			<div id='category' className='section-container'>
-				<h2>Browse Gifts By Category</h2>
+				<h2 className='browse-text' >Browse Gifts By Category</h2>
 				<div className='category-area'>
 					{giftCategories.map((category) => {
 						return (
-							<div key={category}>
+							<div key={category.name}>
 								<div className='card-div'>
-									<Link to={`/category/${category}`}>
+									<Link to={`/category/${category.name}`}>
 										<Card style={{ width: '15rem', height: '12rem' }}>
-											<Card.Body className='category-card-body'>
-												<Card.Title className='category-card-text'><p>{category}</p></Card.Title>
-											</Card.Body>
+											<Card.Img className= 'catimage' src={category.image}/>
 										</Card>
 									</Link>
 								</div>
@@ -77,7 +80,7 @@ const Home = () => {
 			</div>
 
 			<div id='price' className='section-container'>
-				<h2>Browse Gifts By Price</h2>
+				<h2 className='browse-text'>Browse Gifts By Price</h2>
 				<div className='category-area'>
 					{price.map((price) => {
 						return (
@@ -86,7 +89,9 @@ const Home = () => {
 									<Link to={`price/${price}`}>
 										<Card style={{ width: '15rem', height: '12rem' }}>
 											<Card.Body className='price-card-body'>
-												<Card.Title className='price-card-text'>Under ${price}</Card.Title>
+												<Card.Title className='price-card-text'>
+													Under ${price}
+												</Card.Title>
 											</Card.Body>
 										</Card>
 									</Link>

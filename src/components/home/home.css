@@ -9,7 +9,7 @@
 .welcome-area {
 	height: 100vh;
 	max-width: 1200px;
-	margin: auto;
+	/* margin: auto; */
 }
 
 .card-div {
@@ -17,15 +17,9 @@
 	height: 50%;
 }
 
-.image-container {
-	width: 600px;
-	display: flex;
-	flex-direction: column;
-}
 
-.image-container img {
-	align-self: center;
-}
+
+
 
 h1,
 h3 {
@@ -64,17 +58,13 @@ h3 {
 }
 
 .image {
-	margin: 2rem;
-	min-width: 32vh;
+	max-height: 28rem;
+	margin: 20px 35%;
+	
+
 }
 
-.category-card-body {
-	background-image: url('../../imgs/bluesquare.png');
-	background-size: 100%;
-	width: 125%;
-	height: 138%;
-	color: white;
-}
+
 
 .category-card-text {
 	line-height: 10rem;
@@ -90,3 +80,24 @@ h3 {
 .price-card-text {
 	line-height: 10rem;
 }
+
+.catimage{
+	
+	justify-content: stretch;
+
+
+}
+
+@media screen and (max-width:500px) {
+	.image{
+		display:none;
+	}
+	.price-card-body{
+		background-repeat: no-repeat;
+		width: 13rem;
+		margin: 2rem 0 0 0;
+	}
+	.browse-text{
+		display:none;
+	}
+} 
