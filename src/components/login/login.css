@@ -4,25 +4,22 @@ body {
 	margin-bottom: 10rem;
 }
 
-.userFormContainer {
-	margin: auto;
-	border-color: navy;
-	/* border: solid;
-	/* border-radius: 15px; */
-	max-width: 65vw;
-	padding: 6rem ;
+.userFormContainerTwo {
+	
 	background-image: url('../../imgs/greylong.png');
 	background-size: 100%;
-
+	min-width: 600px;
 
 }
 
-.userForm {
-	
-	align-self: center;
-	min-width: 3rem;
-	min-height: 6rem;
+.userFormContainer {
+	margin: 45px;
+	border-color: navy;
+	width: 500px;
+	height: 29rem;
+
 }
+
 
 .login-button {
 	margin: 0 5px 10px 0;
@@ -35,28 +32,32 @@ body {
 	padding: 2em;
 }
 
-.img-container img {
+/* .img-container img {
 	max-width: 30%;
 	height: auto;
-}
+} */
 
 .img-container {
 	display: flex;
 	justify-content: center;
+	margin-bottom: -20px;
+	width: 20rem;
+	margin: 0px 20%
 }
 
 .form-group {
-	margin: 50px 50px 10px 50px;
+	margin: 10px 27% 10px 27%;
 }
 
 h5 {
 	text-align: center;
-	margin: 50px;
+	margin: 20px 27% 5px;
+	padding:40px 0px;
 }
 
 .button-container {
 	max-width: 1200px;
-	margin-left: 50px;
+	margin: 10px 27%;
 }
 
 .form-label {
