@@ -20,15 +20,6 @@ const Home = () => {
 		{ name: 'movies', image:  moviesimage  },
 	];
 
-	// const priceCategories = [
-	// 	'under $25',
-	// 	'under $50',
-	// 	'under $100',
-	// 	'under $150',
-	// 	'under $300',
-	// 	'A real splurge',
-	// ];
-
 	const price = ['25', '50', '100', '150', '300', '2000'];
 
 	return (
