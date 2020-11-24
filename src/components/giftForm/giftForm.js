@@ -29,6 +29,7 @@ const GiftForm = () => {
 		history.push('/');
 	};
 	return (
+		
 		<div className='form'>
 			<h2>Add A New Gift</h2>
 			<Form onSubmit={handleSubmit} className='formContainer'>

@@ -8,6 +8,7 @@
 	transform: translate(-50%, -50%);
 	background: white;
 	border-radius: 15px;
+	min-width: 9rem;
 }
 
 h2 {
