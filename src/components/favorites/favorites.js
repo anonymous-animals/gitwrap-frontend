@@ -13,7 +13,7 @@ const Favorites = ({ favorites }) => {
 	}
 
 	useEffect(() => {
-		setTotalPrice(total.toFixed(2))
+		setTotalPrice(total)
 	}, [])
 
 

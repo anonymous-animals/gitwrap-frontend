@@ -21,9 +21,6 @@ function App() {
 
 	return (
 		<div className='App'>
-			{loggedIn ? (
-				<Login token={token} setToken={setToken} setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
-			) : (
 				<div>
 					<header>
 						<Nav
@@ -93,7 +90,6 @@ function App() {
 						</Switch>
 					</main>
 				</div>
-			)}
 			<footer>
 				<div>
 					<p>&copy; 2020 Anonymous Animals</p>

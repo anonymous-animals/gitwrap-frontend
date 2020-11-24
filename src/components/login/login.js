@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { Form, Button, Modal, Container, Row, Col } from 'react-bootstrap';
 import Home from '../home/home';
 import NewUser from '../userForm/userForm';
@@ -15,6 +15,7 @@ const Login = ({ setToken, setLoggedIn, loggedIn }) => {
 		password: '',
 	});
 
+	const [redirect, setRedirect] = useState(false)
 	const [showModal, setShowModal] = useState(false);
 	const handleClose = () => setShowModal(false);
 	const handleShow = () => setShowModal(true);
@@ -26,16 +27,15 @@ const Login = ({ setToken, setLoggedIn, loggedIn }) => {
 		axios({
 			method: 'POST',
 			url: 'https://gitwrap-backend.herokuapp.com/user/signin/',
-			//url: 'http://localhost:4000/user/signin/',
+			// url: 'http://localhost:4000/user/signin/',
 			data: user,
 		})
 			.then((res) => {
 				setToken(res.data.token);
 				if (res.data.token) {
 					setLoggedIn(true)
-					window.location.href = '/'
+					setRedirect(true)
 				} else {
-					// console.log(res)
 					setError(res.data);
 				}
 			})
@@ -47,9 +47,10 @@ const Login = ({ setToken, setLoggedIn, loggedIn }) => {
 		setUser({ ...user, [event.target.name]: event.target.value });
 	};
 
-	// if (redirect) {
-	// 	<Redirect to='/' />;
-	// }
+	if (redirect) {
+		return	<Redirect to='/' />;
+	}
+
 	return (
 		<div>
 			<div className='img-container'>
