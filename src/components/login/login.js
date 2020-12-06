@@ -8,7 +8,7 @@ import Logo from '../../imgs/gitwrapLogo.png';
 import './login.css';
 
 
-const Login = ({ setToken, setLoggedIn, loggedIn }) => {
+const Login = ({ setToken, setLoggedIn, loggedIn, userId, setUserId }) => {
 	const [user, setUser] = useState({
 		username: '',
 		email: '',
@@ -26,12 +26,13 @@ const Login = ({ setToken, setLoggedIn, loggedIn }) => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-			url: 'https://gitwrap-backend.herokuapp.com/user/signin/',
-			// url: 'http://localhost:4000/user/signin/',
+			// url: 'https://gitwrap-backend.herokuapp.com/user/signin/',
+			url: 'http://localhost:4000/user/signin/',
 			data: user,
 		})
 			.then((res) => {
 				setToken(res.data.token);
+				setUserId(res.data.userId)
 				if (res.data.token) {
 					setLoggedIn(true)
 					setRedirect(true)

@@ -15,8 +15,8 @@ const Login = ({ handleClose }) => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-			url: 'https://gitwrap-backend.herokuapp.com/user/signup/',
-			//url: 'http://localhost:4000/user/signup/',
+			// url: 'https://gitwrap-backend.herokuapp.com/user/signup/',
+			url: 'http://localhost:4000/user/signup/',
 			data: user,
 		});
 		handleClose();

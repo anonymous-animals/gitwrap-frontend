@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './giftShow.css';
 
-const GiftShow = ({ match, favorites, setFavorites }) => {
+const GiftShow = ({ match, favorites, setFavorites, userId, token, setToken }) => {
 	const [gift, setGift] = useState();
 	const [showModal, setShowModal] = useState(false);
 	const [deleteAlert, setDeleteAlert] = useState(false);
@@ -33,18 +33,28 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 
 	const handleClick = (event) => {
 		event.preventDefault();
-		setFavorites([
-			...favorites,
-			{
-				name: gift.name,
-				image: gift.image,
-				id: gift._id,
-				category: gift.category,
-				description: gift.description,
-				link: gift.link,
-				price: gift.price,
+		axios({
+			method: 'PUT',
+			// url: 'https://gitwrap-backend.herokuapp.com/gifts',
+			url: `http://localhost:4000/user/${userId}/${match.params.id}`,
+			headers: {
+				Authorization: `Bearer ${token}`,
 			},
-		]);
+			data: gift,
+		});
+
+		// setFavorites([
+		// 	...favorites,
+		// 	{
+		// 		name: gift.name,
+		// 		image: gift.image,
+		// 		id: gift._id,
+		// 		category: gift.category,
+		// 		description: gift.description,
+		// 		link: gift.link,
+		// 		price: gift.price,
+		// 	},
+		// ]);
 	};
 	const handleChange = (event) => {
 		event.preventDefault();
@@ -59,8 +69,8 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 		event.preventDefault();
 		axios({
 			method: 'PATCH',
-			url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
-			// url: `http://localhost:4000/gifts/${match.params.id}`,
+			// url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
+			url: `http://localhost:4000/gifts/${match.params.id}`,
 			data: gift,
 		});
 		setShowModal(false);
@@ -69,8 +79,8 @@ const GiftShow = ({ match, favorites, setFavorites }) => {
 	const handleDelete = () => {
 		axios({
 			method: 'DELETE',
-			url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
-			// url: `http://localhost:4000/gifts/${match.params.id}`,
+			// url: `https://gitwrap-backend.herokuapp.com/gifts/${match.params.id}`,
+			url: `http://localhost:4000/gifts/${match.params.id}`,
 		});
 		setDeleteAlert(true);
 	};

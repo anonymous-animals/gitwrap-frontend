@@ -18,7 +18,7 @@ function App() {
 	const [favorites, setFavorites] = useState([]);
 	const [token, setToken] = useState(null);
 	const [loggedIn, setLoggedIn] = useState(false);
-
+	const [userId, setUserId] = useState('');
 	return (
 		<div className='App'>
 				<div>
@@ -42,6 +42,8 @@ function App() {
 										setToken={setToken}
 										loggedIn={loggedIn}
 										setLoggedIn={setLoggedIn}
+										userId = {userId}
+										setUserId = {setUserId}
 									/>
 								)}
 							/>
@@ -60,6 +62,10 @@ function App() {
 										setFavorites={setFavorites}
 										gifts={gifts}
 										setGifts={setGifts}
+										userId={userId}
+										setToken={setToken}
+										token={token}
+
 									/>
 								)}
 							/>
