@@ -47,6 +47,6 @@ Run 'npm start' to begin your local server and run the application
 
 ## Contribution Guidelines
 
-We, the Anonymous Animals team, welcome any feedback on this application. If you would like to contribute, please fork/clone this repo, make you changes, and submit a pull request.
+We, the Anonymous Animals team, welcome any feedback on this application. If you would like to contribute, please fork/clone this repo, make your changes, and submit a pull request.
 
 https://github.com/anonymous-animals/gitwrap-frontend
